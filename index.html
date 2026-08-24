@@ -60,7 +60,7 @@
         <button class="nav-item" data-view="tracker" onclick="app.navigateTo('tracker')">
           <i class="fa-solid fa-box-archive"></i> Track Order
         </button>
-        <button class="nav-item" data-view="admin" onclick="app.navigateTo('admin')">
+        <button class="nav-item nav-item-admin" data-view="admin" id="navItemAdmin" onclick="app.navigateTo('admin')" style="display: none;">
           <i class="fa-solid fa-sliders"></i> Creator Studio
         </button>
       </nav>
@@ -88,7 +88,7 @@
         <button class="mobile-nav-item" data-view="tracker" onclick="app.navigateTo('tracker')">
           <i class="fa-solid fa-box-archive"></i> Track My Order
         </button>
-        <button class="mobile-nav-item" data-view="admin" onclick="app.navigateTo('admin')">
+        <button class="mobile-nav-item mobile-nav-item-admin" data-view="admin" id="mobileNavItemAdmin" onclick="app.navigateTo('admin')" style="display: none;">
           <i class="fa-solid fa-sliders"></i> Creator Dashboard
         </button>
       </div>
@@ -876,7 +876,6 @@
           <li><a href="javascript:void(0)" onclick="app.navigateTo('home')">Creations Showcase</a></li>
           <li><a href="javascript:void(0)" onclick="app.navigateTo('customizer')">Order</a></li>
           <li><a href="javascript:void(0)" onclick="app.navigateTo('tracker')">Track Order Status</a></li>
-          <li><a href="javascript:void(0)" onclick="app.navigateTo('admin')">Creator Dashboard</a></li>
         </ul>
       </div>
 
