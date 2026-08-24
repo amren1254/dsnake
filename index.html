@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ooniverse 🧶 Custom Crochet & Order Management</title>
+  <meta name="description" content="Custom crochet made just for you by Ooniverse (@ooniverse_2404). Custom amigurumi, floral bouquets, wearables, and personalized gifts. Upload reference photos and track your orders.">
+  
+  <!-- Google Fonts: Outfit, Fraunces & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/gallery.css">
+  <link rel="stylesheet" href="/css/customizer.css">
+  <link rel="stylesheet" href="/css/tracker.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="ambient-blob blob-1"></div>
+  <div class="ambient-blob blob-2"></div>
+  <div class="ambient-blob blob-3"></div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-content">
+      <span>✨ Handcrafted with love &bull; Limited custom commission slots available for this month!</span>
+      <a href="javascript:void(0)" onclick="app.navigateTo('customizer')" class="announcement-link">Book Your Slot <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="site-header" id="header">
+    <div class="header-container">
+      <a href="javascript:void(0)" class="brand-logo" onclick="app.navigateTo('home')">
+        <div class="logo-badge">
+          <i class="fa-solid fa-feather-pointed"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Ooniverse</span>
+          <span class="brand-handle">@ooniverse_2404</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-menu">
+        <button class="nav-item active" data-view="home" onclick="app.navigateTo('home')">
+          <i class="fa-solid fa-sparkles"></i> Creations
+        </button>
+        <button class="nav-item" data-view="customizer" onclick="app.navigateTo('customizer')">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Custom Order
+        </button>
+        <button class="nav-item" data-view="tracker" onclick="app.navigateTo('tracker')">
+          <i class="fa-solid fa-box-archive"></i> Track Order
+        </button>
+        <button class="nav-item" data-view="admin" onclick="app.navigateTo('admin')">
+          <i class="fa-solid fa-sliders"></i> Creator Studio
+        </button>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <a href="https://www.instagram.com/ooniverse_2404" target="_blank" rel="noopener noreferrer" class="btn btn-instagram" title="Visit Instagram @ooniverse_2404">
+          <i class="fa-brands fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+        <button class="btn btn-primary btn-sm btn-custom-cta" onclick="app.navigateTo('customizer')">
+          <i class="fa-solid fa-heart"></i>
+          <span>Custom Request</span>
+        </button>
+        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle menu" onclick="app.toggleMobileMenu()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <div class="mobile-nav-links">
+        <button class="mobile-nav-item active" onclick="app.navigateTo('home')">
+          <i class="fa-solid fa-sparkles"></i> Creations Feed
+        </button>
+        <button class="mobile-nav-item" onclick="app.navigateTo('customizer')">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Custom Order Wizard
+        </button>
+        <button class="mobile-nav-item" onclick="app.navigateTo('tracker')">
+          <i class="fa-solid fa-box-archive"></i> Track My Order
+        </button>
+        <button class="mobile-nav-item" onclick="app.navigateTo('admin')">
+          <i class="fa-solid fa-sliders"></i> Creator Dashboard
+        </button>
+      </div>
+      <div class="mobile-nav-footer">
+        <a href="https://www.instagram.com/ooniverse_2404" target="_blank" class="btn btn-instagram btn-block">
+          <i class="fa-brands fa-instagram"></i> @ooniverse_2404
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APPLICATION CONTAINER (Multi-view SPA) -->
+  <main class="main-content" id="mainContent">
+
+    <!-- VIEW 1: HOME & CREATIONS SHOWCASE -->
+    <section class="view-section active" id="view-home">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="hero-container">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="pulse-dot"></span>
+              <span>100% Handcrafted Artisan Crochet</span>
+            </div>
+            <h1 class="hero-title">
+              Your Ideas, <br>
+              <span class="gradient-text">My Stitch 🧵</span>
+            </h1>
+            <p class="hero-bio">
+              "Custom crochet made just for you 🧶 &bull; Personalised crochet gifts 🎁 &bull; Turning requests into yarn magic 🪄"
+            </p>
+            
+            <div class="hero-stats">
+              <div class="stat-pill">
+                <span class="stat-num">45+</span>
+                <span class="stat-lbl">Handmade Posts</span>
+              </div>
+              <div class="stat-pill">
+                <span class="stat-num">479+</span>
+                <span class="stat-lbl">IG Community</span>
+              </div>
+              <div class="stat-pill">
+                <span class="stat-num">100%</span>
+                <span class="stat-lbl">Custom Tailored</span>
+              </div>
+            </div>
+
+            <div class="hero-buttons">
+              <button class="btn btn-primary btn-lg" onclick="app.navigateTo('customizer')">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Customize Your Order
+              </button>
+              <button class="btn btn-secondary btn-lg" onclick="app.navigateTo('tracker')">
+                <i class="fa-solid fa-magnifying-glass"></i> Track Order Status
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-card-preview">
+            <div class="artisan-polaroid">
+              <div class="polaroid-image-wrap">
+                <img src="/instagram/DcWMRVLJcI1.jpg" alt="Artisan Crochet Sunflower Bouquet from @ooniverse_2404" class="polaroid-img">
+                <div class="polaroid-tag"><i class="fa-brands fa-instagram"></i> @ooniverse_2404</div>
+              </div>
+              <div class="polaroid-caption">
+                <div class="caption-header">
+                  <span class="caption-title">Tulip & Daisy Eternal Bouquet</span>
+                  <span class="caption-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Made to Order</span>
+                </div>
+                <p class="caption-sub">Hand-stitched in pure milk cotton yarn. Forever fresh.</p>
+                <div class="polaroid-actions">
+                  <button class="btn btn-outline-sm" onclick="customizer.prefillWith('Tulip & Daisy Eternal Bouquet', 'Floral Bouquet', '/instagram/DcWMRVLJcI1.jpg')">
+                    <i class="fa-solid fa-sparkles"></i> Order Similar
+                  </button>
+                  <a href="https://www.instagram.com/ooniverse_2404" target="_blank" class="ig-mini-link">
+                    <i class="fa-brands fa-instagram"></i> @ooniverse_2404
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Creations Gallery & Instagram Post Feed -->
+      <div class="gallery-section" id="creations">
+        <div class="gallery-container">
+          <div class="section-header">
+            <div class="section-badge">
+              <i class="fa-brands fa-instagram"></i> Fresh From The Hook &bull; @ooniverse_2404
+            </div>
+            <h2 class="section-title">Creator Crochet Portfolio</h2>
+            <p class="section-subtitle">
+              Browse our authentic handcrafted Instagram creations. Click <strong>"Order Similar"</strong> to request a bespoke custom piece in your favorite colors and size!
+            </p>
+          </div>
+
+          <!-- Controls: Categories and Search -->
+          <div class="gallery-controls">
+            <div class="category-pills" id="categoryPills">
+              <button class="cat-pill active" data-category="all">All Creations</button>
+              <button class="cat-pill" data-category="bouquets">🌸 Floral Bouquets</button>
+              <button class="cat-pill" data-category="amigurumi">🧸 Amigurumi Plushies</button>
+              <button class="cat-pill" data-category="wearables">🎀 Wearables & Hairties</button>
+              <button class="cat-pill" data-category="bags">👜 Bags & Potlis</button>
+              <button class="cat-pill" data-category="keychains">🔑 Keychains & Charms</button>
+            </div>
+            <div class="gallery-search">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="gallerySearchInput" placeholder="Search creations (e.g. potli, sunflower, hairtie)..." class="search-input">
+            </div>
+          </div>
+
+          <!-- Post Cards Grid -->
+          <div class="gallery-grid" id="galleryGrid">
+            <!-- Dynamically populated from store via js/gallery.js -->
+          </div>
+
+          <!-- Post Inspo Banner -->
+          <div class="custom-inspo-banner">
+            <div class="inspo-content">
+              <div class="inspo-icon"><i class="fa-solid fa-wand-sparkles"></i></div>
+              <div class="inspo-text">
+                <h3>Have a unique idea or custom character in mind?</h3>
+                <p>We bring any sketch, video game character, pet portrait, or custom bouquet to life.</p>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-md" onclick="app.navigateTo('customizer')">
+              <i class="fa-solid fa-paper-plane"></i> Request Custom Quote
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: UNIFIED 1-CLICK CUSTOM ORDER & GET QUOTE FORM -->
+    <section class="view-section" id="view-customizer">
+      <div class="customizer-container">
+        <!-- Header -->
+        <div class="section-header text-center">
+          <div class="section-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> 1-Click Bespoke Order</div>
+          <h2 class="section-title">Design Your Custom Crochet Piece</h2>
+          <p class="section-subtitle">
+            Customize your piece below and click <strong>"Get Quote"</strong> &mdash; our artisan will review your design & confirm your quotation!
+          </p>
+        </div>
+
+        <!-- Unified Form Layout (Left: Specifications & Contact, Right: Sticky Summary & Get Quote CTA) -->
+        <form id="unifiedCustomOrderForm" onsubmit="event.preventDefault(); customizer.submitOrder();">
+          <div class="wizard-layout">
+            <!-- Main Form Card (Unified single scroll) -->
+            <div class="wizard-form-card unified-form-card">
+
+              <!-- SECTION 1: ITEM TYPE & CATEGORY -->
+              <div class="form-section-block">
+                <div class="form-section-title">
+                  <span class="section-step-num">1</span>
+                  <div>
+                    <h3>Select Creation Category</h3>
+                    <p>Choose what type of handcrafted crochet piece you would like made.</p>
+                  </div>
+                </div>
+
+                <div class="category-select-grid">
+                  <label class="cat-card-option">
+                    <input type="radio" name="orderCategory" value="bouquets" checked>
+                    <div class="cat-card-inner">
+                      <span class="cat-emoji">🌸</span>
+                      <h4>Floral Bouquet</h4>
+                      <p>Sunflowers, tulips, daisies, and eternal flower wraps.</p>
+                    </div>
+                  </label>
+
+                  <label class="cat-card-option">
+                    <input type="radio" name="orderCategory" value="amigurumi">
+                    <div class="cat-card-inner">
+                      <span class="cat-emoji">🧸</span>
+                      <h4>Amigurumi Plushie</h4>
+                      <p>Cute 3D stuffed animals, anime characters & desk buddies.</p>
+                    </div>
+                  </label>
+
+                  <label class="cat-card-option">
+                    <input type="radio" name="orderCategory" value="wearables">
+                    <div class="cat-card-inner">
+                      <span class="cat-emoji">🎀</span>
+                      <h4>Wearable & Hair Clips</h4>
+                      <p>Floral hairties, cat ear clips, cardigans, and tops.</p>
+                    </div>
+                  </label>
+
+                  <label class="cat-card-option">
+                    <input type="radio" name="orderCategory" value="bags">
+                    <div class="cat-card-inner">
+                      <span class="cat-emoji">👜</span>
+                      <h4>Bag or Potli</h4>
+                      <p>Rose potli bags, tote bags, clutches, and pouches.</p>
+                    </div>
+                  </label>
+
+                  <label class="cat-card-option">
+                    <input type="radio" name="orderCategory" value="keychains">
+                    <div class="cat-card-inner">
+                      <span class="cat-emoji">🔑</span>
+                      <h4>Keychain & Charm</h4>
+                      <p>Mini bag charms, mirror hangers & heart charms.</p>
+                    </div>
+                  </label>
+
+                  <label class="cat-card-option">
+                    <input type="radio" name="orderCategory" value="custom">
+                    <div class="cat-card-inner">
+                      <span class="cat-emoji">🪄</span>
+                      <h4>Completely Custom</h4>
+                      <p>Blankets, car decor, pet portraits & unique ideas.</p>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- SECTION 2: DETAILS & INSPIRATION PHOTOS -->
+              <div class="form-section-block">
+                <div class="form-section-title">
+                  <span class="section-step-num">2</span>
+                  <div>
+                    <h3>Describe Your Vision & Inspo Photos</h3>
+                    <p>Provide details and attach reference screenshots or sketches.</p>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="customItemTitle">Project Name / Item Title <span class="req">*</span></label>
+                  <input type="text" id="customItemTitle" class="form-input" placeholder="e.g. Everlasting Sunflower Bouquet or Rose Potli Bag" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="customItemDescription">Detailed Description & Special Notes <span class="req">*</span></label>
+                  <textarea id="customItemDescription" rows="3" class="form-input" placeholder="Describe flower types, color placement, character expressions, ribbons, beads, or special requests..." required></textarea>
+                </div>
+
+                <!-- Drag & Drop Reference Image Upload -->
+                <div class="form-group">
+                  <label class="form-label">Upload Reference Images / Inspo Photos (Optional)</label>
+                  <div class="file-drop-zone" id="fileDropZone">
+                    <input type="file" id="referenceImageInput" accept="image/*" multiple class="file-input-hidden">
+                    <div class="drop-zone-content">
+                      <div class="drop-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                      <h4>Drag & Drop reference photos here</h4>
+                      <p>or <button type="button" class="browse-btn" onclick="document.getElementById('referenceImageInput').click()">Browse files</button> (PNG, JPG, WebP up to 10MB)</p>
+                      <span class="drop-hint">Upload Pinterest inspo, sketches, or Instagram screenshots!</span>
+                    </div>
+                  </div>
+                  <div class="image-preview-grid" id="imagePreviewGrid"></div>
+                </div>
+              </div>
+
+              <!-- SECTION 3: YARN TEXTURE & COLOR PALETTE -->
+              <div class="form-section-block">
+                <div class="form-section-title">
+                  <span class="section-step-num">3</span>
+                  <div>
+                    <h3>Choose Yarn Texture & Color Palette</h3>
+                    <p>Select material feel and up to 4 custom color swatches.</p>
+                  </div>
+                </div>
+
+                <!-- Yarn Material Selector -->
+                <div class="form-group">
+                  <label class="form-label">Preferred Yarn Texture</label>
+                  <div class="yarn-options-grid">
+                    <label class="yarn-card-option">
+                      <input type="radio" name="yarnType" value="cotton" checked>
+                      <div class="yarn-card-inner">
+                        <div class="yarn-badge">🌿 Most Popular</div>
+                        <i class="fa-solid fa-seedling"></i>
+                        <h4>100% Milk / Organic Cotton</h4>
+                        <p>Durable, crisp stitch definition. Best for bouquets, potlis & hairties.</p>
+                        <span class="yarn-tag">Durable & Crisp</span>
+                      </div>
+                    </label>
+
+                    <label class="yarn-card-option">
+                      <input type="radio" name="yarnType" value="velvet">
+                      <div class="yarn-card-inner">
+                        <div class="yarn-badge">✨ Plush & Soft</div>
+                        <i class="fa-solid fa-cloud"></i>
+                        <h4>Chunky Chenille / Velvet</h4>
+                        <p>Ultra-soft, velvety texture. Perfect for plushies and cuddly gifts.</p>
+                        <span class="yarn-tag">Cozy & Squishy</span>
+                      </div>
+                    </label>
+
+                    <label class="yarn-card-option">
+                      <input type="radio" name="yarnType" value="wool">
+                      <div class="yarn-card-inner">
+                        <div class="yarn-badge">🧶 Premium Warmth</div>
+                        <i class="fa-solid fa-mitten"></i>
+                        <h4>Soft Wool Blend</h4>
+                        <p>Warm, luxurious, and breathable for wearables & heirloom gifts.</p>
+                        <span class="yarn-tag">Warm & Heirloom</span>
+                      </div>
+                    </label>
+
+                    <label class="yarn-card-option">
+                      <input type="radio" name="yarnType" value="acrylic">
+                      <div class="yarn-card-inner">
+                        <div class="yarn-badge">🌈 Vibrant Everyday</div>
+                        <i class="fa-solid fa-shapes"></i>
+                        <h4>Premium Soft Acrylic</h4>
+                        <p>Lightweight, vibrant color retention, and easy care.</p>
+                        <span class="yarn-tag">Vibrant & Versatile</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Color Palette Swatch Picker -->
+                <div class="form-group">
+                  <label class="form-label">Color Palette Selection (Choose up to 4 colors)</label>
+                  <div class="swatch-palette-container">
+                    <div class="swatches-grid" id="swatchesGrid">
+                      <!-- Populated dynamically via js/customizer.js -->
+                    </div>
+                    <div class="selected-colors-bar">
+                      <span>Selected Palette:</span>
+                      <div class="selected-palette-chips" id="selectedPaletteChips">
+                        <span class="placeholder-chip">Click colors above to select</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="custom-color-note" style="margin-top: 10px;">
+                    <label class="form-label-sub" for="colorNotes">Specific Color Placement Notes (Optional)</label>
+                    <input type="text" id="colorNotes" class="form-input-sm" placeholder="e.g. 'Main flowers in Mustard Yellow, stem in Sage Green'">
+                  </div>
+                </div>
+              </div>
+
+              <!-- SECTION 4: SIZE, ADD-ONS & DEADLINE -->
+              <div class="form-section-block">
+                <div class="form-section-title">
+                  <span class="section-step-num">4</span>
+                  <div>
+                    <h3>Size, Add-ons & Need-by Date</h3>
+                    <p>Select dimensions and optional gift packaging or rush crafting.</p>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Size / Dimension Range</label>
+                  <div class="size-options-grid">
+                    <label class="size-card-option">
+                      <input type="radio" name="itemSize" value="mini">
+                      <div class="size-card-inner">
+                        <h4>Mini / Pocket</h4>
+                        <span class="size-dimension">5 - 10 cm</span>
+                        <p>Hairties, bag charms, and small accessories.</p>
+                      </div>
+                    </label>
+
+                    <label class="size-card-option">
+                      <input type="radio" name="itemSize" value="standard" checked>
+                      <div class="size-card-inner">
+                        <div class="size-badge">✨ Standard</div>
+                        <h4>Regular / Medium</h4>
+                        <span class="size-dimension">15 - 22 cm</span>
+                        <p>Standard plushie, bouquet or potli bag.</p>
+                      </div>
+                    </label>
+
+                    <label class="size-card-option">
+                      <input type="radio" name="itemSize" value="large">
+                      <div class="size-card-inner">
+                        <h4>Large / Deluxe</h4>
+                        <span class="size-dimension">25 - 35 cm</span>
+                        <p>Deluxe grand bouquet or tote bag.</p>
+                      </div>
+                    </label>
+
+                    <label class="size-card-option">
+                      <input type="radio" name="itemSize" value="wearable">
+                      <div class="size-card-inner">
+                        <h4>Apparel Sizing</h4>
+                        <span class="size-dimension">Custom Fits</span>
+                        <p>Cardigans, tops, and bespoke garments.</p>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Add-ons Checkboxes -->
+                <div class="form-group">
+                  <label class="form-label">Personalization & Gifting Add-ons</label>
+                  <div class="addons-list">
+                    <label class="addon-item">
+                      <input type="checkbox" id="addonEngravedTag" value="wooden_tag" onchange="customizer.updateRequestSummary()">
+                      <div class="addon-info">
+                        <span class="addon-title"><i class="fa-solid fa-tag"></i> Custom Laser-Engraved Wooden Charm / Name Tag</span>
+                        <span class="addon-sub">Personalized with recipient's initial or name</span>
+                      </div>
+                    </label>
+
+                    <label class="addon-item">
+                      <input type="checkbox" id="addonGiftWrap" value="gift_wrap" onchange="customizer.updateRequestSummary()">
+                      <div class="addon-info">
+                        <span class="addon-title"><i class="fa-solid fa-gift"></i> Luxury Gift Packaging & Wax Seal Note Card</span>
+                        <span class="addon-sub">Kraft box, dried floral sprig, satin ribbon & handwritten wax-sealed message</span>
+                      </div>
+                    </label>
+
+                    <label class="addon-item">
+                      <input type="checkbox" id="addonRush" value="rush_order" onchange="customizer.updateRequestSummary()">
+                      <div class="addon-info">
+                        <span class="addon-title"><i class="fa-solid fa-bolt"></i> Express Priority Rush Crafting</span>
+                        <span class="addon-sub">Moved to top priority queue; crafted in 2-3 business days</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Target Deadline -->
+                <div class="form-row">
+                  <div class="form-col">
+                    <label class="form-label" for="targetDeadline">Target Need-by Date (Optional)</label>
+                    <input type="date" id="targetDeadline" class="form-input" onchange="customizer.updateRequestSummary()">
+                    <span class="form-hint">Let us know if this is for a birthday, anniversary, or event.</span>
+                  </div>
+                  <div class="form-col">
+                    <label class="form-label" for="giftMessage">Gift Card Note (If gifting)</label>
+                    <input type="text" id="giftMessage" class="form-input" placeholder="e.g. Happy Birthday Pooja! Love, Amy" oninput="customizer.updateRequestSummary()">
+                  </div>
+                </div>
+              </div>
+
+              <!-- SECTION 5: CONTACT & DELIVERY ADDRESS -->
+              <div class="form-section-block">
+                <div class="form-section-title">
+                  <span class="section-step-num">5</span>
+                  <div>
+                    <h3>Your Contact & Delivery Address</h3>
+                    <p>Creator will send your quote and WIP progress photos to your WhatsApp.</p>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-col">
+                    <label class="form-label" for="custName">Your Full Name <span class="req">*</span></label>
+                    <input type="text" id="custName" class="form-input" placeholder="e.g. Pooja Sharma" required>
+                  </div>
+                  <div class="form-col">
+                    <label class="form-label" for="custInstagram">Instagram Handle (Optional)</label>
+                    <input type="text" id="custInstagram" class="form-input" placeholder="e.g. @pooja_crafts">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-col">
+                    <label class="form-label" for="custPhone">WhatsApp / Mobile Number <span class="req">*</span></label>
+                    <input type="tel" id="custPhone" class="form-input" placeholder="+91 98765 43210" required>
+                  </div>
+                  <div class="form-col">
+                    <label class="form-label" for="custEmail">Email Address <span class="req">*</span></label>
+                    <input type="email" id="custEmail" class="form-input" placeholder="pooja@example.com" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="custAddress">Complete Delivery Address (House/Flat No., Street, City, State, Pincode) <span class="req">*</span></label>
+                  <textarea id="custAddress" rows="2" class="form-input" placeholder="e.g. Flat 402, Lotus Heights, Indiranagar, Bengaluru, Karnataka - 560038" required></textarea>
+                </div>
+
+                <div class="order-policy-box">
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="agreePolicy" required checked>
+                    <span>I understand that each piece is 100% handmade to order. Zero advance payment is required until you review and approve the quotation.</span>
+                  </label>
+                </div>
+
+                <!-- 1-Click Get Quote Action at Bottom of Form -->
+                <div class="form-submit-footer">
+                  <button type="submit" class="btn btn-primary btn-lg btn-get-quote-main" id="btnSubmitBottom">
+                    <i class="fa-solid fa-paper-plane"></i> Get Quote
+                  </button>
+                  <span class="submit-hint"><i class="fa-solid fa-shield-halved"></i> Free Quote &bull; No Obligation &bull; WhatsApp Response</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sticky Live Summary & 1-Click "Get Quote" Card (Desktop Sticky) -->
+            <div class="wizard-summary-card">
+              <div class="summary-header">
+                <div class="summary-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+                <div>
+                  <h3>Request Summary</h3>
+                  <span class="summary-subtitle">Bespoke Crochet Order</span>
+                </div>
+              </div>
+
+              <div class="summary-preview-item" id="summaryPreviewItem">
+                <div class="summary-thumb" id="summaryThumb">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <div class="summary-details">
+                  <h4 id="sumTitle">Custom Floral Bouquet</h4>
+                  <span id="sumCategory" class="badge-cat">Floral Bouquet</span>
+                </div>
+              </div>
+
+              <div class="summary-specs-list">
+                <div class="spec-row">
+                  <span class="spec-label"><i class="fa-solid fa-yarn"></i> Yarn:</span>
+                  <strong id="sumYarnLabel" class="spec-val">100% Milk Cotton</strong>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label"><i class="fa-solid fa-ruler-combined"></i> Size:</span>
+                  <strong id="sumSizeLabel" class="spec-val">Regular / Medium</strong>
+                </div>
+                <div class="spec-row">
+                  <span class="spec-label"><i class="fa-solid fa-palette"></i> Palette:</span>
+                  <div id="sumPaletteChips" class="spec-val-palette">
+                    <span class="palette-dot-preview" style="background:#8A9A86;"></span>
+                    <span class="palette-dot-preview" style="background:#E76F51;"></span>
+                  </div>
+                </div>
+                <div class="spec-row" id="sumAddonsRow" style="display:none;">
+                  <span class="spec-label"><i class="fa-solid fa-gift"></i> Add-ons:</span>
+                  <span id="sumAddonsText" class="spec-val">None</span>
+                </div>
+              </div>
+
+              <div class="summary-quote-notice">
+                <div class="quote-notice-icon"><i class="fa-solid fa-comments"></i></div>
+                <div class="quote-notice-text">
+                  <strong>Bespoke Creator Quotation</strong>
+                  <p>Creator @ooniverse_2404 will review your references & send the exact quote on WhatsApp.</p>
+                </div>
+              </div>
+
+              <div class="summary-timeline-estimate">
+                <div class="time-item">
+                  <i class="fa-solid fa-hourglass-half"></i>
+                  <div>
+                    <strong>Turnaround Time</strong>
+                    <p id="sumTurnaround">4 - 6 business days</p>
+                  </div>
+                </div>
+                <div class="time-item">
+                  <i class="fa-solid fa-camera"></i>
+                  <div>
+                    <strong>Progress Guarantee</strong>
+                    <p>Live WIP photos before delivery</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 1-Click Big Get Quote CTA Button -->
+              <div class="summary-cta-wrap">
+                <button type="submit" class="btn btn-primary btn-block btn-lg btn-get-quote" id="btnSubmitSticky">
+                  <i class="fa-solid fa-paper-plane"></i> Get Quote
+                </button>
+                <span class="cta-micro-note"><i class="fa-brands fa-whatsapp"></i> Instant confirmation dispatched to creator</span>
+              </div>
+
+              <div class="summary-direct-dm">
+                <p>Prefer to order directly via Instagram DM?</p>
+                <button type="button" class="btn btn-outline-sm btn-block" onclick="customizer.openDirectInstagramDM()">
+                  <i class="fa-brands fa-instagram"></i> DM @ooniverse_2404
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- VIEW 3: ORDER TRACKER (Customer Portal) -->
+    <section class="view-section" id="view-tracker">
+      <div class="tracker-container">
+        <!-- Tracker Header -->
+        <div class="section-header text-center">
+          <div class="section-badge"><i class="fa-solid fa-box-archive"></i> Self-Service Tracking</div>
+          <h2 class="section-title">Track Your Handcrafted Order</h2>
+          <p class="section-subtitle">
+            Enter your unique Order ID (e.g. <code>#OON-9241</code>) or email to check real-time stitch progress and creator WIP photos.
+          </p>
+        </div>
+
+        <!-- Order Lookup Search Bar -->
+        <div class="tracker-search-box">
+          <div class="search-input-group">
+            <i class="fa-solid fa-magnifying-glass input-icon"></i>
+            <input type="text" id="trackerSearchQuery" placeholder="Enter Order ID (e.g. #OON-9241) or email address..." class="tracker-input">
+            <button class="btn btn-primary" onclick="tracker.searchOrder()">
+              <i class="fa-solid fa-arrow-right"></i> Track
+            </button>
+          </div>
+          <div class="demo-track-hints">
+            <span>Quick Demo Orders:</span>
+            <button class="btn-chip" onclick="tracker.lookupSample('#OON-2024-8841')">#OON-2024-8841 (Crocheting)</button>
+            <button class="btn-chip" onclick="tracker.lookupSample('#OON-2024-9102')">#OON-2024-9102 (Shipped)</button>
+          </div>
+        </div>
+
+        <!-- Tracker Results Display -->
+        <div class="tracker-result-card" id="trackerResultCard" style="display: none;">
+          <!-- Populated dynamically via js/tracker.js -->
+        </div>
+
+        <!-- Empty state placeholder -->
+        <div class="tracker-empty-state" id="trackerEmptyState">
+          <div class="empty-icon"><i class="fa-solid fa-boxes-packing"></i></div>
+          <h3>Enter an Order ID to View Stitch Progress</h3>
+          <p>You can find your Order ID in your order confirmation or receipt message.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: CREATOR / ADMIN DASHBOARD -->
+    <section class="view-section" id="view-admin">
+      <div class="admin-container">
+        <!-- Header -->
+        <div class="admin-header">
+          <div>
+            <div class="section-badge"><i class="fa-solid fa-sliders"></i> Creator Studio</div>
+            <h2 class="section-title">Ooniverse Order Management</h2>
+            <p class="section-subtitle">Manage customer custom requests, update crafting stages, upload WIP progress photos, and publish new posts.</p>
+          </div>
+          <div class="admin-top-actions">
+            <button class="btn btn-secondary btn-sm" onclick="admin.openNewPostModal()">
+              <i class="fa-solid fa-plus"></i> Add New Post
+            </button>
+            <button class="btn btn-outline-sm" onclick="admin.exportOrdersData()">
+              <i class="fa-solid fa-file-export"></i> Export JSON
+            </button>
+          </div>
+        </div>
+
+        <!-- Metrics Overview Cards -->
+        <div class="admin-metrics-grid">
+          <div class="metric-card">
+            <div class="metric-icon icon-purple"><i class="fa-solid fa-inbox"></i></div>
+            <div class="metric-data">
+              <span class="metric-val" id="metricTotalOrders">0</span>
+              <span class="metric-lbl">Total Orders</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon icon-yellow"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <div class="metric-data">
+              <span class="metric-val" id="metricInProgress">0</span>
+              <span class="metric-lbl">On The Hook (WIP)</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon icon-blue"><i class="fa-solid fa-truck-fast"></i></div>
+            <div class="metric-data">
+              <span class="metric-val" id="metricShipped">0</span>
+              <span class="metric-lbl">Shipped / Delivered</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon icon-green"><i class="fa-solid fa-coins"></i></div>
+            <div class="metric-data">
+              <span class="metric-val" id="metricTotalRevenue">$0</span>
+              <span class="metric-lbl">Estimated Pipeline</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orders Table & Filter Controls -->
+        <div class="admin-table-card">
+          <div class="table-card-header">
+            <div class="table-filters">
+              <button class="filter-tab active" data-status="all" onclick="admin.filterStatus('all')">All (<span id="countAll">0</span>)</button>
+              <button class="filter-tab" data-status="received" onclick="admin.filterStatus('received')">New (<span id="countReceived">0</span>)</button>
+              <button class="filter-tab" data-status="pattern_prepared" onclick="admin.filterStatus('pattern_prepared')">Designing (<span id="countDesigning">0</span>)</button>
+              <button class="filter-tab" data-status="in_progress" onclick="admin.filterStatus('in_progress')">Crocheting (<span id="countCrocheting">0</span>)</button>
+              <button class="filter-tab" data-status="quality_check" onclick="admin.filterStatus('quality_check')">Finishing (<span id="countFinishing">0</span>)</button>
+              <button class="filter-tab" data-status="shipped" onclick="admin.filterStatus('shipped')">Shipped (<span id="countShipped">0</span>)</button>
+              <button class="filter-tab" data-status="completed" onclick="admin.filterStatus('completed')">Delivered (<span id="countDelivered">0</span>)</button>
+            </div>
+            <div class="table-search">
+              <input type="text" id="adminSearchInput" placeholder="Filter by customer, ID or item..." class="form-input-sm" oninput="admin.renderOrdersTable()">
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-orders-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer</th>
+                  <th>Item Details</th>
+                  <th>Yarn & Palette</th>
+                  <th>Inspo / Ref</th>
+                  <th>Price</th>
+                  <th>Current Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminOrdersTableBody">
+                <!-- Populated via js/admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: ORDER SUCCESS CONFIRMATION & RECEIPT -->
+  <div class="modal-overlay" id="orderSuccessModal">
+    <div class="modal-card modal-receipt">
+      <button class="modal-close" onclick="app.closeModal('orderSuccessModal')">&times;</button>
+      <div class="receipt-header">
+        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <h3>Custom Order Confirmed!</h3>
+        <p class="receipt-subtitle">Your request has been submitted to Ooniverse.</p>
+      </div>
+
+      <div class="receipt-body" id="receiptModalBody">
+        <!-- Dynamically rendered -->
+      </div>
+
+      <div class="receipt-actions">
+        <button class="btn btn-primary" id="btnReceiptWhatsApp" onclick="customizer.dispatchWhatsApp()">
+          <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+        </button>
+        <button class="btn btn-instagram" onclick="customizer.dispatchInstagram()">
+          <i class="fa-brands fa-instagram"></i> Send to @ooniverse_2404
+        </button>
+        <button class="btn btn-secondary" onclick="app.closeModal('orderSuccessModal'); app.navigateTo('tracker');">
+          <i class="fa-solid fa-magnifying-glass"></i> Track This Order
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ADMIN UPDATE ORDER STATUS & WIP UPLOAD -->
+  <div class="modal-overlay" id="adminOrderModal">
+    <div class="modal-card modal-medium">
+      <button class="modal-close" onclick="app.closeModal('adminOrderModal')">&times;</button>
+      <div class="modal-header">
+        <h3>Update Order Stage & Upload WIP Photos</h3>
+        <span class="modal-subtitle" id="adminModalOrderSubtitle">#OON-XXXX</span>
+      </div>
+      <div class="modal-body" id="adminModalOrderContent">
+        <!-- Populated via js/admin.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD NEW CREATION POST (For Creator) -->
+  <div class="modal-overlay" id="newPostModal">
+    <div class="modal-card modal-medium">
+      <button class="modal-close" onclick="app.closeModal('newPostModal')">&times;</button>
+      <div class="modal-header">
+        <h3>Add New Creation to Feed</h3>
+        <span class="modal-subtitle">Showcase your latest Instagram crochet work</span>
+      </div>
+      <div class="modal-body">
+        <form id="newPostForm" onsubmit="admin.handleAddNewPost(event)">
+          <div class="form-group">
+            <label class="form-label" for="newPostTitle">Creation Name <span class="req">*</span></label>
+            <input type="text" id="newPostTitle" class="form-input" placeholder="e.g. Lavender & Chamomile Bouquet" required>
+          </div>
+          <div class="form-row">
+            <div class="form-col">
+              <label class="form-label" for="newPostCategory">Category <span class="req">*</span></label>
+              <select id="newPostCategory" class="form-input" required>
+                <option value="bouquets">🌸 Floral Bouquets</option>
+                <option value="amigurumi">🧸 Amigurumi Plushies</option>
+                <option value="wearables">🎀 Wearables & Hairties</option>
+                <option value="bags">👜 Bags & Potlis</option>
+                <option value="keychains">🔑 Keychains & Charms</option>
+              </select>
+            </div>
+            <div class="form-col">
+              <label class="form-label" for="newPostTag">Post Tag / Highlight</label>
+              <input type="text" id="newPostTag" class="form-input" placeholder="e.g. ✨ New Creation or 🌸 Hand Tied">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="newPostDesc">Instagram Caption / Story <span class="req">*</span></label>
+            <textarea id="newPostDesc" rows="3" class="form-input" placeholder="Stitched with love in 100% milk cotton yarn..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="newPostYarn">Yarn Type / Material</label>
+            <input type="text" id="newPostYarn" class="form-input" placeholder="e.g. 100% Milk Cotton Yarn">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Upload Post Photo <span class="req">*</span></label>
+            <input type="file" id="newPostImageFile" accept="image/*" class="form-input" required onchange="admin.handlePostImageSelect(event)">
+            <div id="newPostImagePreview" style="margin-top:10px;"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="app.closeModal('newPostModal')">Cancel</button>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-cloud-arrow-up"></i> Publish to Feed</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CREATOR BESPOKE QUOTATION GENERATOR (INR / ₹) -->
+  <div class="modal-overlay" id="creatorQuoteModal">
+    <div class="modal-card modal-large">
+      <button class="modal-close" onclick="app.closeModal('creatorQuoteModal')">&times;</button>
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-file-invoice-dollar" style="color:var(--primary-rose);"></i> Creator Quotation Generator (₹ INR)</h3>
+        <span class="modal-subtitle" id="quoteModalSubtitle">Prepare & Dispatch Official Quote to Customer</span>
+      </div>
+      <div class="modal-body" id="quoteModalBody">
+        <!-- Dynamically rendered via js/admin.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <div class="logo-badge"><i class="fa-solid fa-feather-pointed"></i></div>
+          <span class="brand-name">Ooniverse</span>
+        </div>
+        <p class="footer-tagline">"Custom crochet made just for you 🧶 &bull; Your ideas my stitch 🧵 &bull; Personalised crochet gifts 🎁"</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/ooniverse_2404" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-brands fa-instagram"></i> @ooniverse_2404</a>
+          <a href="https://wa.me/919876543210?text=Hi%20Ooniverse%2C%20I%20would%20like%20to%20inquire%20about%20a%20custom%20crochet%20order!" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="javascript:void(0)" onclick="app.navigateTo('home')">Creations Showcase</a></li>
+          <li><a href="javascript:void(0)" onclick="app.navigateTo('customizer')">Custom Order Wizard</a></li>
+          <li><a href="javascript:void(0)" onclick="app.navigateTo('tracker')">Track Order Status</a></li>
+          <li><a href="javascript:void(0)" onclick="app.navigateTo('admin')">Creator Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Artisan Guarantee</h4>
+        <p class="footer-guarantee">Every stitch is crafted with care, high-grade yarn, and personalized attention. Work-in-progress snapshots shared with every order.</p>
+        <span class="copyright">&copy; 2026 Ooniverse. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Element -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Application Scripts -->
+  <script type="module" src="/js/store.js"></script>
+  <script type="module" src="/js/gallery.js"></script>
+  <script type="module" src="/js/customizer.js"></script>
+  <script type="module" src="/js/tracker.js"></script>
+  <script type="module" src="/js/admin.js"></script>
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
