@@ -7,7 +7,8 @@
     "dev": "concurrently -k -p \"[{name}]\" -n \"SERVER,VITE\" -c \"cyan.bold,green.bold\" \"node server/index.js\" \"vite\"",
     "build": "vite build",
     "start": "node server/index.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync:instagram": "node scripts/sync-instagram.js"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",

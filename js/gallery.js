@@ -86,14 +86,29 @@ class Gallery {
         ? `https://www.instagram.com/p/${item.shortcode}/` 
         : `https://www.instagram.com/ooniverse_2404/`;
 
+      const rawLikes = Number(item.likes) || 12;
+      const formattedLikes = rawLikes >= 1000 ? `${(rawLikes / 1000).toFixed(rawLikes >= 10000 ? 0 : 1)}k` : rawLikes;
+
+      let cleanCaption = (item.caption || '')
+        .replace(/#\w+/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+      if (!cleanCaption) cleanCaption = `Handcrafted custom crochet keepsake stitched with love.`;
+
       return `
         <article class="post-card" data-id="${item.id}">
           <div class="post-image-wrap">
             <img src="${item.image}" alt="${item.title}" class="post-img" loading="lazy">
             
-            <div class="post-badge">
-              <i class="fa-brands fa-instagram"></i> ${item.tag || 'Handmade'}
-            </div>
+            ${item.sentiment ? `
+              <div class="post-badge">
+                <span>${item.sentiment}</span>
+              </div>
+            ` : (item.tag ? `
+              <div class="post-badge">
+                <span>${item.tag}</span>
+              </div>
+            ` : '')}
 
             ${item.is_video ? `
               <div class="video-indicator-badge" title="Instagram Reel">
@@ -101,49 +116,28 @@ class Gallery {
               </div>
             ` : ''}
 
-            <button class="post-like-btn ${isLiked ? 'liked' : ''}" onclick="gallery.handleLike('${item.id}')" title="Like this post">
+            <button class="post-like-btn ${isLiked ? 'liked' : ''}" onclick="gallery.handleLike('${item.id}')" title="Like this piece" aria-label="Like this piece">
               <i class="fa-${isLiked ? 'solid' : 'regular'} fa-heart"></i>
+              <span class="like-num-badge">${formattedLikes}</span>
             </button>
           </div>
 
           <div class="post-body">
-            <div class="post-header">
+            <div class="post-header-main">
               <h3 class="post-title">${item.title}</h3>
-              <span class="post-badge-order"><i class="fa-solid fa-sparkles"></i> Made to Order</span>
+              <span class="post-yarn-chip"><i class="fa-solid fa-seedling"></i> ${item.yarn_type || item.yarnType || 'Milk Cotton'}</span>
             </div>
 
-            ${item.sentiment ? `
-              <div class="post-sentiment-tag">
-                <i class="fa-solid fa-feather-pointed"></i> <span>${item.sentiment}</span>
-              </div>
-            ` : ''}
+            <p class="post-desc">${cleanCaption}</p>
 
-            <p class="post-desc">${item.caption}</p>
-
-            ${item.meaning ? `
-              <div class="post-meaning-quote">
-                &ldquo;${item.meaning}&rdquo;
-              </div>
-            ` : ''}
-
-            <div class="post-meta-details">
-              <div class="meta-row">
-                <i class="fa-solid fa-yarn"></i>
-                <span>Yarn: <strong>${item.yarn_type || item.yarnType || 'Milk Cotton'}</strong></span>
-              </div>
-              <div class="meta-row">
-                <i class="fa-solid fa-heart" style="color:#7D2E3A;"></i>
-                <span><strong>${item.likes || 12}</strong> likes on Instagram</span>
-              </div>
-            </div>
-
-            <div class="post-actions">
-              <button class="btn-action-icon btn-action-quote" onclick="gallery.orderSimilar('${item.id}')" title="Customize & Request Quote (1-Click)" aria-label="Customize & Request Quote">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-              </button>
-              <a href="${igPostUrl}" target="_blank" rel="noopener noreferrer" class="btn-action-icon btn-action-instagram" title="View on Instagram (@ooniverse_2404)" aria-label="View on Instagram">
+            <div class="post-footer-actions">
+              <a href="${igPostUrl}" target="_blank" rel="noopener noreferrer" class="btn-card-ig" title="View on Instagram (@ooniverse_2404)" aria-label="View on Instagram">
                 <i class="fa-brands fa-instagram"></i>
               </a>
+              <button class="btn btn-primary btn-card-order" onclick="gallery.orderSimilar('${item.id}')" title="Order This Piece" aria-label="Order This Piece">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Order</span>
+              </button>
             </div>
           </div>
         </article>

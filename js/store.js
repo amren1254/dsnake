@@ -3,224 +3,69 @@
  * Embeds authentic Instagram creations directly with Hunar Crochet inspired sentiment & occasion categorization
  */
 
-export const INITIAL_INSTAGRAM_CREATIONS = [
-  {
-    id: "post_DWD3OiYCWBG",
-    shortcode: "DWD3OiYCWBG",
-    title: "Viral Floral & Bow Crochet Hairtie",
-    category: "wearables",
-    occasion: "just_because",
-    sentiment: "Playful Charm",
-    meaning: "Delicate hand-tied ribbon bow and floral accent for hair.",
-    image: "/instagram/DWD3OiYCWBG.jpg",
-    caption: "Viral Floral & Bow crochet hairtie 🎀 Stitched with love. DM for custom colors and orders! #crochethairtie #viralreels",
-    yarn_type: "Soft Cotton & Elastic",
-    yarnType: "Soft Cotton & Elastic",
-    dimensions: "Standard Elastic Fit",
-    likes: 13982,
-    is_video: 1,
-    tag: "🔥 13.9k+ Views",
-    created_at: "2026-08-24 10:00:00"
-  },
-  {
-    id: "post_DcWMRVLJcI1",
-    shortcode: "DcWMRVLJcI1",
-    title: "Everlasting Tulip & Daisy Floral Wrap",
-    category: "bouquets",
-    occasion: "birthday",
-    sentiment: "Joy & Everlasting Bond",
-    meaning: "Symbolizes cheerful adoration and memories that never fade.",
-    image: "/instagram/DcWMRVLJcI1.jpg",
-    caption: "Hand-tied eternal tulip and daisy bouquet 🌸 100% milk cotton yarn. Never withers! #crochetflowers #bouquets",
-    yarn_type: "100% Milk Cotton",
-    yarnType: "100% Milk Cotton",
-    dimensions: "Medium Bouquet (22cm)",
-    likes: 48,
-    is_video: 1,
-    tag: "🌸 Hand Tied",
-    created_at: "2026-08-24 11:00:00"
-  },
-  {
-    id: "post_DcMQNKvzau5",
-    shortcode: "DcMQNKvzau5",
-    title: "Viral Rose Petal Potli Handbag",
-    category: "bags",
-    occasion: "love",
-    sentiment: "Festive Elegance",
-    meaning: "Layered rose petal silhouette with luxury golden drawstring cord.",
-    image: "/instagram/DcMQNKvzau5.jpg",
-    caption: "Viral Rose Petal Potli Handbag 🌹 Silk cotton finish with golden drawstring tassels. DM to order! #rosepotli #crochetbag",
-    yarn_type: "Lustrous Silky Cotton",
-    yarnType: "Lustrous Silky Cotton",
-    dimensions: "Standard Bag (20cm)",
-    likes: 76,
-    is_video: 1,
-    tag: "👜 Trending Potli",
-    created_at: "2026-08-24 12:00:00"
-  },
-  {
-    id: "post_DcRFjycJxe8",
-    shortcode: "DcRFjycJxe8",
-    title: "Cute Mini Amigurumi Desk Companion",
-    category: "amigurumi",
-    occasion: "heal_calm",
-    sentiment: "Cozy Comfort & Cheer",
-    meaning: "A tactile pocket plush buddy that brings a gentle smile to your workspace.",
-    image: "/instagram/DcRFjycJxe8.jpg",
-    caption: "Mini amigurumi plushie buddy 🧸 Soft chenille velvet yarn. Custom character requests welcome! #amigurumi #crochetplush",
-    yarn_type: "Chunky Velvet Yarn",
-    yarnType: "Chunky Velvet Yarn",
-    dimensions: "Pocket Buddy (10cm)",
-    likes: 35,
-    is_video: 1,
-    tag: "🧸 Cute Plush",
-    created_at: "2026-08-24 13:00:00"
-  },
-  {
-    id: "post_DcOhYSXJWtt",
-    shortcode: "DcOhYSXJWtt",
-    title: "Mini Daisy Bag Charm & Keychain",
-    category: "keychains",
-    occasion: "just_because",
-    sentiment: "Everyday Sunshine",
-    meaning: "Hand-stitched botanical charm to brighten bags, airpods & keys.",
-    image: "/instagram/DcOhYSXJWtt.jpg",
-    caption: "Handmade daisy crochet charm & keychain 🌼 Perfect gift accent for backpacks, handbags & keys.",
-    yarn_type: "Organic Cotton",
-    yarnType: "Organic Cotton",
-    dimensions: "Charm Size (8cm)",
-    likes: 29,
-    is_video: 1,
-    tag: "🔑 Gift Favorite",
-    created_at: "2026-08-24 14:00:00"
-  },
-  {
-    id: "post_DcITdLbpduk",
-    shortcode: "DcITdLbpduk",
-    title: "Artisan Pastel Flower Bouquet",
-    category: "bouquets",
-    occasion: "love",
-    sentiment: "Enduring Affection",
-    meaning: "Soft romantic blush and milk hues wrapped in rustic vintage kraft paper.",
-    image: "/instagram/DcITdLbpduk.jpg",
-    caption: "Pastel blooms hand-wrapped in rustic kraft paper 💐 Custom color combinations available upon request.",
-    yarn_type: "Milk Cotton Yarn",
-    yarnType: "Milk Cotton Yarn",
-    dimensions: "Deluxe Bouquet (30cm)",
-    likes: 42,
-    is_video: 1,
-    tag: "✨ Bespoke",
-    created_at: "2026-08-24 15:00:00"
-  },
-  {
-    id: "post_DcIQe1EJCiZ",
-    shortcode: "DcIQe1EJCiZ",
-    title: "Bespoke Sunflower & Rose Arrangement",
-    category: "bouquets",
-    occasion: "new_beginnings",
-    sentiment: "Admiration & Bright Hopes",
-    meaning: "Combines the sunny optimism of sunflowers with timeless rose petals.",
-    image: "/instagram/DcIQe1EJCiZ.jpg",
-    caption: "Sunflower & classic rose eternity wrap 🌻 Handcrafted with pure love. DM for orders!",
-    yarn_type: "100% Milk Cotton",
-    yarnType: "100% Milk Cotton",
-    dimensions: "Standard Wrap (25cm)",
-    likes: 51,
-    is_video: 1,
-    tag: "🌻 Sunny Bloom",
-    created_at: "2026-08-24 16:00:00"
-  },
-  {
-    id: "post_DZkN5djpgpY",
-    shortcode: "DZkN5djpgpY",
-    title: "Handcrafted Heart Charm Accessory",
-    category: "keychains",
-    occasion: "love",
-    sentiment: "Heartfelt Keepsake",
-    meaning: "Plush velvet token symbolizing warm love and treasured connection.",
-    image: "/instagram/DZkN5djpgpY.jpg",
-    caption: "Heart crochet charm for bags & keys 💖 Hand-stitched in plush velvet.",
-    yarn_type: "Plush Velvet",
-    yarnType: "Plush Velvet",
-    dimensions: "Mini (7cm)",
-    likes: 38,
-    is_video: 1,
-    tag: "💖 Hand-Stitched",
-    created_at: "2026-08-24 17:00:00"
-  },
-  {
-    id: "post_DYKWz-MJyqx",
-    shortcode: "DYKWz-MJyqx",
-    title: "Whimsical Butterfly Crochet Hairtie",
-    category: "wearables",
-    occasion: "birthday",
-    sentiment: "Grace & Transformation",
-    meaning: "Pastel wings stitched in soft organic cotton to elevate everyday styling.",
-    image: "/instagram/DYKWz-MJyqx.jpg",
-    caption: "Whimsical butterfly hair accessory 🦋 Soft pastel cotton. DM for custom colors! #smallbusinessowner",
-    yarn_type: "Pastel Cotton",
-    yarnType: "Pastel Cotton",
-    dimensions: "One Size",
-    likes: 64,
-    is_video: 1,
-    tag: "🦋 Viral Hairtie",
-    created_at: "2026-08-24 18:00:00"
-  },
-  {
-    id: "post_DX8KlieJ3xs",
-    shortcode: "DX8KlieJ3xs",
-    title: "Lavender & Chamomile Crochet Stem",
-    category: "bouquets",
-    occasion: "heal_calm",
-    sentiment: "Serenity & Healing",
-    meaning: "Calming botanical stem that creates a mindful, tranquil sanctuary at home.",
-    image: "/instagram/DX8KlieJ3xs.jpg",
-    caption: "Lavender & chamomile single stems 🌿 Everlasting botanical decor for your bedside or workspace.",
-    yarn_type: "Milk Cotton Yarn",
-    yarnType: "Milk Cotton Yarn",
-    dimensions: "Stem (28cm)",
-    likes: 31,
-    is_video: 1,
-    tag: "🌿 Calming Herb",
-    created_at: "2026-08-24 19:00:00"
-  },
-  {
-    id: "post_DXyQp0EJUvx",
-    shortcode: "DXyQp0EJUvx",
-    title: "Evergreen Sunflower Single Stem Wrap",
-    category: "bouquets",
-    occasion: "just_because",
-    sentiment: "Pure Optimism & Gratitude",
-    meaning: "A permanent ray of sunshine requiring zero water or sunlight.",
-    image: "/instagram/DXyQp0EJUvx.jpg",
-    caption: "Single blooming sunflower wrap with silk bow 🌻 A sunny smile that lasts forever!",
-    yarn_type: "Organic Cotton Yarn",
-    yarnType: "Organic Cotton Yarn",
-    dimensions: "Single Stem (25cm)",
-    likes: 58,
-    is_video: 1,
-    tag: "🌻 Forever Flower",
-    created_at: "2026-08-24 20:00:00"
-  },
-  {
-    id: "post_DXwOHr3pCCu",
-    shortcode: "DXwOHr3pCCu",
-    title: "Viral Cat Ear Crochet Hair Clips (Pair)",
-    category: "wearables",
-    occasion: "just_because",
-    sentiment: "Playful Individuality",
-    meaning: "Whimsical fluffy chenille snap clips for cozy style statements.",
-    image: "/instagram/DXwOHr3pCCu.jpg",
-    caption: "Viral kitty cat ear hair clips (pair) 🐱 Fluffy soft chenille with snap clips. DM to order!",
-    yarn_type: "Fluffy Chenille",
-    yarnType: "Fluffy Chenille",
-    dimensions: "Clip Pair (6cm each)",
-    likes: 89,
-    is_video: 1,
-    tag: "🐱 Viral Cat Ear",
-    created_at: "2026-08-24 21:00:00"
+import rawInstagramPosts from '../data/instagram_posts.json';
+
+const CURATED_METADATA = {
+  'DWD3OiYCWBG': { title: 'Viral Floral & Bow Crochet Hairtie', category: 'wearables', occasion: 'just_because', sentiment: 'Playful Charm', meaning: 'Delicate hand-tied ribbon bow and floral accent for hair.', yarn_type: 'Soft Cotton & Elastic', tag: '🔥 13.9k+ Views', dimensions: 'Standard Elastic Fit' },
+  'DcWMRVLJcI1': { title: 'Everlasting Tulip & Daisy Floral Wrap', category: 'bouquets', occasion: 'birthday', sentiment: 'Joy & Everlasting Bond', meaning: 'Symbolizes cheerful adoration and memories that never fade.', yarn_type: '100% Milk Cotton', tag: '🌸 Hand Tied', dimensions: 'Medium Bouquet (22cm)' },
+  'DcMQNKvzau5': { title: 'Viral Rose Petal Potli Handbag', category: 'bags', occasion: 'love', sentiment: 'Festive Elegance', meaning: 'Layered rose petal silhouette with luxury golden drawstring cord.', yarn_type: 'Lustrous Silky Cotton', tag: '👜 Trending Potli', dimensions: 'Standard Bag (20cm)' },
+  'DcRFjycJxe8': { title: 'Cute Mini Amigurumi Desk Companion', category: 'amigurumi', occasion: 'heal_calm', sentiment: 'Cozy Comfort & Cheer', meaning: 'A tactile pocket plush buddy that brings a gentle smile to your workspace.', yarn_type: 'Chunky Velvet Yarn', tag: '🧸 Cute Plush', dimensions: 'Pocket Buddy (10cm)' },
+  'DcOhYSXJWtt': { title: 'Mini Daisy Bag Charm & Keychain', category: 'keychains', occasion: 'just_because', sentiment: 'Everyday Sunshine', meaning: 'Hand-stitched botanical charm to brighten bags, airpods & keys.', yarn_type: 'Organic Cotton', tag: '🔑 Gift Favorite', dimensions: 'Charm Size (8cm)' },
+  'DcITdLbpduk': { title: 'Artisan Pastel Flower Bouquet', category: 'bouquets', occasion: 'love', sentiment: 'Enduring Affection', meaning: 'Soft romantic blush and milk hues wrapped in rustic vintage kraft paper.', yarn_type: 'Milk Cotton Yarn', tag: '✨ Bespoke', dimensions: 'Full Wrap (30cm)' },
+  'DcIQe1EJCiZ': { title: 'Bespoke Sunflower & Rose Arrangement', category: 'bouquets', occasion: 'new_beginnings', sentiment: 'Admiration & Bright Hopes', meaning: 'Combines the sunny optimism of sunflowers with timeless rose petals.', yarn_type: '100% Milk Cotton', tag: '🌻 Sunny Bloom', dimensions: 'Tall Bouquet (32cm)' },
+  'DZkN5djpgpY': { title: 'Handcrafted Heart Charm Accessory', category: 'keychains', occasion: 'love', sentiment: 'Heartfelt Keepsake', meaning: 'Plush velvet token symbolizing warm love and treasured connection.', yarn_type: 'Plush Velvet', tag: '💖 Hand-Stitched', dimensions: 'Heart (7cm)' },
+  'DYKWz-MJyqx': { title: 'Whimsical Butterfly Crochet Hairtie', category: 'wearables', occasion: 'birthday', sentiment: 'Grace & Transformation', meaning: 'Pastel wings stitched in soft organic cotton to elevate everyday styling.', yarn_type: 'Pastel Cotton', tag: '🦋 Viral Hairtie', dimensions: 'Standard Fit' },
+  'DX8KlieJ3xs': { title: 'Lavender & Chamomile Crochet Stem', category: 'bouquets', occasion: 'heal_calm', sentiment: 'Serenity & Healing', meaning: 'Calming botanical stem that creates a mindful, tranquil sanctuary at home.', yarn_type: 'Milk Cotton Yarn', tag: '🌿 Calming Herb', dimensions: 'Stem (28cm)' },
+  'DXyQp0EJUvx': { title: 'Evergreen Sunflower Single Stem Wrap', category: 'bouquets', occasion: 'just_because', sentiment: 'Pure Optimism & Gratitude', meaning: 'A permanent ray of sunshine requiring zero water or sunlight.', yarn_type: 'Organic Cotton Yarn', tag: '🌻 Forever Flower', dimensions: 'Single Stem (25cm)' },
+  'DXwOHr3pCCu': { title: 'Viral Cat Ear Crochet Hair Clips (Pair)', category: 'wearables', occasion: 'just_because', sentiment: 'Playful Individuality', meaning: 'Whimsical fluffy chenille snap clips for cozy style statements.', yarn_type: 'Fluffy Chenille', tag: '🐱 Viral Cat Ear', dimensions: 'Clip Pair (6cm each)' }
+};
+
+function inferCategoryFromCaption(caption = '') {
+  const c = (caption || '').toLowerCase();
+  if (c.includes('hairtie') || c.includes('hair tie') || c.includes('clip') || c.includes('cardigan') || c.includes('wearable') || c.includes('scrunchie')) return 'wearables';
+  if (c.includes('bouquet') || c.includes('tulip') || c.includes('flower') || c.includes('rose') || c.includes('sunflower') || c.includes('stem')) return 'bouquets';
+  if (c.includes('bag') || c.includes('potli') || c.includes('tote') || c.includes('pouch') || c.includes('purse')) return 'bags';
+  if (c.includes('keychain') || c.includes('charm') || c.includes('accessory')) return 'keychains';
+  if (c.includes('amigurumi') || c.includes('plush') || c.includes('toy') || c.includes('buddy') || c.includes('doll')) return 'amigurumi';
+  return 'bouquets';
+}
+
+function inferTitleFromCaption(caption = '', shortcode = '') {
+  if (!caption) return `Ooniverse Creation #${shortcode}`;
+  const firstLine = caption.split('\n')[0].replace(/#\S+/g, '').replace(/dm for (orders|order)/gi, '').trim();
+  if (firstLine.length >= 3) {
+    return firstLine.charAt(0).toUpperCase() + firstLine.slice(1);
   }
-];
+  return `Handcrafted Crochet Creation #${shortcode}`;
+}
+
+export const INITIAL_INSTAGRAM_CREATIONS = (Array.isArray(rawInstagramPosts) ? rawInstagramPosts : []).map(post => {
+  const curated = CURATED_METADATA[post.shortcode] || {};
+  const cat = curated.category || post.category || inferCategoryFromCaption(post.caption);
+  const title = curated.title || post.title || inferTitleFromCaption(post.caption, post.shortcode);
+  const yarn = curated.yarn_type || post.yarn_type || '100% Milk Cotton';
+  const img = post.local_image || (post.shortcode ? `/instagram/${post.shortcode}.jpg` : (post.display_url || '/images/sunflower_bouquet.jpg'));
+
+  return {
+    id: `post_${post.shortcode}`,
+    shortcode: post.shortcode,
+    title: title,
+    category: cat,
+    occasion: curated.occasion || post.occasion || 'just_because',
+    sentiment: curated.sentiment || post.sentiment || 'Artisan Keepsake',
+    meaning: curated.meaning || post.meaning || 'Handcrafted bespoke crochet made with love.',
+    image: img,
+    caption: post.caption || 'Handcrafted with love by @ooniverse_2404 🧶 DM for custom orders!',
+    yarn_type: yarn,
+    yarnType: yarn,
+    dimensions: curated.dimensions || post.dimensions || 'Handcrafted Custom Size',
+    likes: post.likes || 12,
+    is_video: post.is_video ? 1 : 0,
+    video_url: post.video_url || null,
+    tag: curated.tag || post.tag || '✨ Hand-Stitched',
+    created_at: post.created_at || (post.timestamp ? new Date(post.timestamp * 1000).toISOString() : new Date().toISOString())
+  };
+});
 
 const API_BASE = '/api';
 

@@ -70,6 +70,30 @@ node server/index.js
 
 # Or run Vite dev server for hot-reloading
 npm run dev
+
+# Manually trigger Instagram sync
+npm run sync:instagram
 ```
 
 The application is accessible at `http://localhost:3001` (Backend + SPA) or `http://localhost:5173` (Vite dev).
+
+---
+
+## ⏰ Automated 24-Hour Instagram Cron Job & Vercel Deployment
+
+A GitHub Actions workflow is configured in [`.github/workflows/fetch-instagram-posts.yml`](file:///.github/workflows/fetch-instagram-posts.yml) to automatically keep the website synchronized with the Instagram profile.
+
+### How It Works:
+1. **Schedule**: Runs automatically every 24 hours at `00:00 UTC` via GitHub Cron schedule (`cron: '0 0 * * *'`).
+2. **Fetch**: Runs [`scripts/sync-instagram.js`](file:///scripts/sync-instagram.js) to fetch all recent posts, media, likes, comments, and captions from Instagram (`@ooniverse_2404` or custom handle).
+3. **Smart Merge**: Downloads new post photos to `public/instagram/` and merges new/updated post details into [`data/instagram_posts.json`](file:///data/instagram_posts.json).
+4. **Change Detection**: Checks if `data/instagram_posts.json` or media assets have changed.
+5. **Git Commit & Push**: Commits the newly discovered posts back to GitHub.
+6. **Vercel Build Trigger**:
+   - Standard: Pushing new posts to GitHub automatically triggers a production build if Vercel is connected to the GitHub repo.
+   - Deploy Hook: If `VERCEL_DEPLOY_HOOK_URL` is set in GitHub Secrets, triggers an instant deployment rebuild via Vercel Deploy Hook.
+
+### Optional GitHub Secrets Configuration:
+- `VERCEL_DEPLOY_HOOK_URL`: *(Recommended)* Create a Deploy Hook in **Vercel Project Settings ➔ Git ➔ Deploy Hooks** (e.g. `https://api.vercel.com/v1/integrations/deploy/prj_...`) and add it to **GitHub Repo Settings ➔ Secrets and variables ➔ Actions**.
+- `INSTAGRAM_SESSION_ID`: *(Optional)* Your Instagram session cookie string if you want authenticated fetching.
+
