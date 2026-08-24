@@ -372,106 +372,10 @@
                 </div>
               </div>
 
-              <!-- SECTION 3: SIZE, ADD-ONS & DEADLINE -->
+              <!-- SECTION 3: CONTACT & DELIVERY ADDRESS -->
               <div class="form-section-block">
                 <div class="form-section-title">
                   <span class="section-step-num">3</span>
-                  <div>
-                    <h3>Size, Add-ons & Need-by Date</h3>
-                    <p>Select dimensions and optional gift packaging or rush crafting.</p>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Size / Dimension Range</label>
-                  <div class="size-options-grid">
-                    <label class="size-card-option">
-                      <input type="radio" name="itemSize" value="mini">
-                      <div class="size-card-inner">
-                        <h4>Mini / Pocket</h4>
-                        <span class="size-dimension">5 - 10 cm</span>
-                        <p>Hairties, bag charms, and small accessories.</p>
-                      </div>
-                    </label>
-
-                    <label class="size-card-option">
-                      <input type="radio" name="itemSize" value="standard" checked>
-                      <div class="size-card-inner">
-                        <div class="size-badge">✨ Standard</div>
-                        <h4>Regular / Medium</h4>
-                        <span class="size-dimension">15 - 22 cm</span>
-                        <p>Standard plushie, bouquet or potli bag.</p>
-                      </div>
-                    </label>
-
-                    <label class="size-card-option">
-                      <input type="radio" name="itemSize" value="large">
-                      <div class="size-card-inner">
-                        <h4>Large / Deluxe</h4>
-                        <span class="size-dimension">25 - 35 cm</span>
-                        <p>Deluxe grand bouquet or tote bag.</p>
-                      </div>
-                    </label>
-
-                    <label class="size-card-option">
-                      <input type="radio" name="itemSize" value="wearable">
-                      <div class="size-card-inner">
-                        <h4>Apparel Sizing</h4>
-                        <span class="size-dimension">Custom Fits</span>
-                        <p>Cardigans, tops, and bespoke garments.</p>
-                      </div>
-                    </label>
-                  </div>
-                </div>
-
-                <!-- Add-ons Checkboxes -->
-                <div class="form-group">
-                  <label class="form-label">Personalization & Gifting Add-ons</label>
-                  <div class="addons-list">
-                    <label class="addon-item">
-                      <input type="checkbox" id="addonEngravedTag" value="wooden_tag" onchange="customizer.updateRequestSummary()">
-                      <div class="addon-info">
-                        <span class="addon-title"><i class="fa-solid fa-tag"></i> Custom Laser-Engraved Wooden Charm / Name Tag</span>
-                        <span class="addon-sub">Personalized with recipient's initial or name</span>
-                      </div>
-                    </label>
-
-                    <label class="addon-item">
-                      <input type="checkbox" id="addonGiftWrap" value="gift_wrap" onchange="customizer.updateRequestSummary()">
-                      <div class="addon-info">
-                        <span class="addon-title"><i class="fa-solid fa-gift"></i> Luxury Gift Packaging & Wax Seal Note Card</span>
-                        <span class="addon-sub">Kraft box, dried floral sprig, satin ribbon & handwritten wax-sealed message</span>
-                      </div>
-                    </label>
-
-                    <label class="addon-item">
-                      <input type="checkbox" id="addonRush" value="rush_order" onchange="customizer.updateRequestSummary()">
-                      <div class="addon-info">
-                        <span class="addon-title"><i class="fa-solid fa-bolt"></i> Express Priority Rush Crafting</span>
-                        <span class="addon-sub">Moved to top priority queue; crafted in 2-3 business days</span>
-                      </div>
-                    </label>
-                  </div>
-                </div>
-
-                <!-- Target Deadline -->
-                <div class="form-row">
-                  <div class="form-col">
-                    <label class="form-label" for="targetDeadline">Target Need-by Date (Optional)</label>
-                    <input type="date" id="targetDeadline" class="form-input" onchange="customizer.updateRequestSummary()">
-                    <span class="form-hint">Let us know if this is for a birthday, anniversary, or event.</span>
-                  </div>
-                  <div class="form-col">
-                    <label class="form-label" for="giftMessage">Gift Card Note (If gifting)</label>
-                    <input type="text" id="giftMessage" class="form-input" placeholder="e.g. Happy Birthday Pooja! Love, Amy" oninput="customizer.updateRequestSummary()">
-                  </div>
-                </div>
-              </div>
-
-              <!-- SECTION 4: CONTACT & DELIVERY ADDRESS -->
-              <div class="form-section-block">
-                <div class="form-section-title">
-                  <span class="section-step-num">4</span>
                   <div>
                     <h3>Your Contact & Delivery Address</h3>
                     <p>Creator will send your quote and WIP progress photos to your WhatsApp.</p>
@@ -548,19 +452,11 @@
                   <strong id="sumYarnLabel" class="spec-val">100% Milk Cotton</strong>
                 </div>
                 <div class="spec-row">
-                  <span class="spec-label"><i class="fa-solid fa-ruler-combined"></i> Size:</span>
-                  <strong id="sumSizeLabel" class="spec-val">Regular / Medium</strong>
-                </div>
-                <div class="spec-row">
                   <span class="spec-label"><i class="fa-solid fa-palette"></i> Palette:</span>
                   <div id="sumPaletteChips" class="spec-val-palette">
                     <span class="palette-dot-preview" style="background:#8A9A86;"></span>
                     <span class="palette-dot-preview" style="background:#E76F51;"></span>
                   </div>
-                </div>
-                <div class="spec-row" id="sumAddonsRow" style="display:none;">
-                  <span class="spec-label"><i class="fa-solid fa-gift"></i> Add-ons:</span>
-                  <span id="sumAddonsText" class="spec-val">None</span>
                 </div>
               </div>
 

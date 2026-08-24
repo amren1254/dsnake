@@ -131,10 +131,6 @@ class Customizer {
       input.addEventListener('change', () => this.updateRequestSummary());
     });
 
-    document.querySelectorAll('input[name="itemSize"]').forEach(input => {
-      input.addEventListener('change', () => this.updateRequestSummary());
-    });
-
     const titleInput = document.getElementById('customItemTitle');
     if (titleInput) {
       titleInput.addEventListener('input', () => this.updateRequestSummary());
@@ -242,21 +238,15 @@ class Customizer {
     }
 
     const yarn = document.querySelector('input[name="yarnType"]:checked')?.value || 'cotton';
-    const size = document.querySelector('input[name="itemSize"]:checked')?.value || 'standard';
 
     const sumTitle = document.getElementById('sumTitle');
     const sumCategory = document.getElementById('sumCategory');
     const sumYarnLabel = document.getElementById('sumYarnLabel');
-    const sumSizeLabel = document.getElementById('sumSizeLabel');
     const sumPaletteChips = document.getElementById('sumPaletteChips');
-    const sumAddonsRow = document.getElementById('sumAddonsRow');
-    const sumAddonsText = document.getElementById('sumAddonsText');
-    const sumTurnaround = document.getElementById('sumTurnaround');
 
     if (sumTitle) sumTitle.textContent = titleVal || 'Custom Handcrafted Piece';
     if (sumCategory) sumCategory.textContent = CATEGORY_NAMES[category] || 'Custom Piece';
     if (sumYarnLabel) sumYarnLabel.textContent = YARN_LABELS[yarn] || yarn;
-    if (sumSizeLabel) sumSizeLabel.textContent = SIZE_LABELS[size] || size;
 
     if (sumPaletteChips) {
       sumPaletteChips.innerHTML = this.selectedColors.map(c => `
@@ -264,33 +254,14 @@ class Customizer {
       `).join('');
     }
 
-    const addons = [];
-    if (document.getElementById('addonEngravedTag')?.checked) addons.push('Engraved Tag');
-    if (document.getElementById('addonGiftWrap')?.checked) addons.push('Gift Wrap');
-    if (document.getElementById('addonRush')?.checked) addons.push('Rush Priority');
-
-    if (sumAddonsRow && sumAddonsText) {
-      if (addons.length > 0) {
-        sumAddonsRow.style.display = 'flex';
-        sumAddonsText.textContent = addons.join(', ');
-      } else {
-        sumAddonsRow.style.display = 'none';
-      }
-    }
-
-    if (sumTurnaround) {
-      const isRush = document.getElementById('addonRush')?.checked;
-      sumTurnaround.textContent = isRush ? '⚡ 2 - 3 business days (Priority Rush)' : '4 - 6 business days';
-    }
-
     return {
       category,
       catLabel: CATEGORY_NAMES[category] || 'Custom Piece',
       yarn,
-      yarnLabel: YARN_LABELS[yarn],
-      size,
-      sizeLabel: SIZE_LABELS[size],
-      addons
+      yarnLabel: YARN_LABELS[yarn] || yarn,
+      size: 'standard',
+      sizeLabel: 'Handcrafted Custom Size',
+      addons: []
     };
   }
 
@@ -335,8 +306,6 @@ class Customizer {
     const phone = document.getElementById('custPhone')?.value.trim();
     const address = document.getElementById('custAddress')?.value.trim();
     const igHandle = document.getElementById('custInstagram')?.value.trim() || '';
-    const deadline = document.getElementById('targetDeadline')?.value || '';
-    const giftMsg = document.getElementById('giftMessage')?.value.trim() || '';
     const colorNotes = document.getElementById('colorNotes')?.value.trim() || '';
 
     // Validation
@@ -392,15 +361,11 @@ class Customizer {
       yarnLabel: summary.yarnLabel,
       palette: this.selectedColors,
       colorNotes: colorNotes,
-      size: summary.size,
-      sizeLabel: summary.sizeLabel,
-      addons: [
-        document.getElementById('addonEngravedTag')?.checked ? 'wooden_tag' : null,
-        document.getElementById('addonGiftWrap')?.checked ? 'gift_wrap' : null,
-        document.getElementById('addonRush')?.checked ? 'rush_order' : null
-      ].filter(Boolean),
-      targetDeadline: deadline,
-      giftMessage: giftMsg,
+      size: 'standard',
+      sizeLabel: 'Handcrafted Custom Size',
+      addons: [],
+      targetDeadline: '',
+      giftMessage: '',
       referenceImages: this.uploadedImages.length > 0 ? this.uploadedImages : ['/instagram/DcWMRVLJcI1.jpg']
     };
 
@@ -465,8 +430,8 @@ class Customizer {
           <strong>${order.title}</strong>
         </div>
         <div class="receipt-row">
-          <span>Material & Size:</span>
-          <span>${order.yarn_label || order.yarnLabel} &bull; ${order.size_label || order.sizeLabel}</span>
+          <span>Material:</span>
+          <span>${order.yarn_label || order.yarnLabel || '100% Milk Cotton'}</span>
         </div>
         <div class="receipt-row total-row">
           <span>Quotation Status:</span>
