@@ -138,11 +138,11 @@ class Gallery {
             </div>
 
             <div class="post-actions">
-              <button class="btn-order-similar" onclick="gallery.orderSimilar('${item.id}')">
-                <i class="fa-solid fa-wand-magic-sparkles"></i> Order Similar
+              <button class="btn-action-icon btn-action-quote" onclick="gallery.orderSimilar('${item.id}')" title="Customize & Request Quote (1-Click)" aria-label="Customize & Request Quote">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
               </button>
-              <a href="${igPostUrl}" target="_blank" rel="noopener noreferrer" class="btn-inquire-dm" title="View on Instagram">
-                <i class="fa-brands fa-instagram"></i> View Post
+              <a href="${igPostUrl}" target="_blank" rel="noopener noreferrer" class="btn-action-icon btn-action-instagram" title="View on Instagram (@ooniverse_2404)" aria-label="View on Instagram">
+                <i class="fa-brands fa-instagram"></i>
               </a>
             </div>
           </div>

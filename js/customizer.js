@@ -228,10 +228,21 @@ class Customizer {
   }
 
   updateRequestSummary() {
-    const category = document.querySelector('input[name="orderCategory"]:checked')?.value || 'bouquets';
+    const titleVal = document.getElementById('customItemTitle')?.value.trim();
+    let category = document.querySelector('input[name="orderCategory"]:checked')?.value;
+    
+    if (!category) {
+      const tLower = (titleVal || '').toLowerCase();
+      if (tLower.includes('bouquet') || tLower.includes('tulip') || tLower.includes('sunflower') || tLower.includes('flower')) category = 'bouquets';
+      else if (tLower.includes('plush') || tLower.includes('amigurumi') || tLower.includes('buddy') || tLower.includes('doll')) category = 'amigurumi';
+      else if (tLower.includes('bag') || tLower.includes('potli') || tLower.includes('tote')) category = 'bags';
+      else if (tLower.includes('hair') || tLower.includes('wearable') || tLower.includes('clip') || tLower.includes('cardigan')) category = 'wearables';
+      else if (tLower.includes('keychain') || tLower.includes('charm')) category = 'keychains';
+      else category = 'custom';
+    }
+
     const yarn = document.querySelector('input[name="yarnType"]:checked')?.value || 'cotton';
     const size = document.querySelector('input[name="itemSize"]:checked')?.value || 'standard';
-    const titleVal = document.getElementById('customItemTitle')?.value.trim();
 
     const sumTitle = document.getElementById('sumTitle');
     const sumCategory = document.getElementById('sumCategory');
@@ -242,8 +253,8 @@ class Customizer {
     const sumAddonsText = document.getElementById('sumAddonsText');
     const sumTurnaround = document.getElementById('sumTurnaround');
 
-    if (sumTitle) sumTitle.textContent = titleVal || `${CATEGORY_NAMES[category] || 'Custom'} Piece`;
-    if (sumCategory) sumCategory.textContent = CATEGORY_NAMES[category] || category;
+    if (sumTitle) sumTitle.textContent = titleVal || 'Custom Handcrafted Piece';
+    if (sumCategory) sumCategory.textContent = CATEGORY_NAMES[category] || 'Custom Piece';
     if (sumYarnLabel) sumYarnLabel.textContent = YARN_LABELS[yarn] || yarn;
     if (sumSizeLabel) sumSizeLabel.textContent = SIZE_LABELS[size] || size;
 
@@ -274,7 +285,7 @@ class Customizer {
 
     return {
       category,
-      catLabel: CATEGORY_NAMES[category],
+      catLabel: CATEGORY_NAMES[category] || 'Custom Piece',
       yarn,
       yarnLabel: YARN_LABELS[yarn],
       size,
@@ -286,20 +297,9 @@ class Customizer {
   prefillWith(title, categoryName, imagePath, yarnType = 'cotton') {
     if (window.app) window.app.navigateTo('customizer');
 
-    let catKey = 'bouquets';
-    const cLower = (categoryName || '').toLowerCase();
-    if (cLower.includes('bouquet') || cLower.includes('floral')) catKey = 'bouquets';
-    else if (cLower.includes('amigurumi') || cLower.includes('plush')) catKey = 'amigurumi';
-    else if (cLower.includes('bag') || cLower.includes('potli') || cLower.includes('tote')) catKey = 'bags';
-    else if (cLower.includes('wearable') || cLower.includes('hair') || cLower.includes('clip') || cLower.includes('cardigan')) catKey = 'wearables';
-    else if (cLower.includes('keychain') || cLower.includes('charm')) catKey = 'keychains';
-
-    const catRadio = document.querySelector(`input[name="orderCategory"][value="${catKey}"]`);
-    if (catRadio) catRadio.checked = true;
-
     const titleInput = document.getElementById('customItemTitle');
     if (titleInput) {
-      titleInput.value = `Custom ${title}`;
+      titleInput.value = `${title}`;
     }
 
     const descInput = document.getElementById('customItemDescription');
@@ -313,6 +313,9 @@ class Customizer {
       this.renderImagePreviews();
       this.updateSummaryThumb(fullPath);
     }
+
+    const yarnRadio = document.querySelector(`input[name="yarnType"][value="${yarnType}"]`);
+    if (yarnRadio) yarnRadio.checked = true;
 
     this.updateRequestSummary();
 

@@ -26,6 +26,7 @@
   <div class="ambient-blob blob-1"></div>
   <div class="ambient-blob blob-2"></div>
   <div class="ambient-blob blob-3"></div>
+  <div class="ambient-blob blob-4"></div>
 
   <!-- Announcement Bar -->
   <div class="announcement-bar">
@@ -185,7 +186,7 @@
             </div>
             <h2 class="section-title">Artisan Crochet Portfolio & Collections</h2>
             <p class="section-subtitle">
-              Everlasting handmade crochet floral wraps, bespoke potlis, hairties, and plushies. Browse by product category or sentiment, and click <strong>"Order Similar"</strong> to request your custom quote!
+              Everlasting handmade crochet floral wraps, bespoke potlis, hairties, and plushies. Browse by category or sentiment, and click the magic wand icon (<i class="fa-solid fa-wand-magic-sparkles"></i>) on any creation to request your custom quote!
             </p>
           </div>
 
@@ -240,121 +241,42 @@
       </div>
     </section>
 
-    <!-- VIEW 2: UNIFIED 1-CLICK CUSTOM ORDER & GET QUOTE FORM -->
+    <!-- VIEW 2: DIRECT CUSTOM ORDER & GET QUOTE FORM -->
     <section class="view-section" id="view-customizer">
       <div class="customizer-container">
         <!-- Header -->
         <div class="section-header text-center">
-          <div class="section-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> 1-Click Bespoke Order</div>
-          <h2 class="section-title">Design Your Custom Crochet Piece</h2>
+          <div class="section-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Direct Custom Order</div>
+          <h2 class="section-title">Order Your Custom Crochet Piece</h2>
           <p class="section-subtitle">
-            Customize your piece below and click <strong>"Get Quote"</strong> &mdash; our artisan will review your design & confirm your quotation!
+            Describe what you want made, attach reference photos, choose your colors, and click <strong>"Get Quote"</strong> &mdash; our artisan will review & confirm your quotation!
           </p>
         </div>
 
         <!-- Unified Form Layout (Left: Specifications & Contact, Right: Sticky Summary & Get Quote CTA) -->
         <form id="unifiedCustomOrderForm" onsubmit="event.preventDefault(); customizer.submitOrder();">
           <div class="wizard-layout">
-            <!-- Main Form Card (Unified single scroll) -->
+            <!-- Main Form Card -->
             <div class="wizard-form-card unified-form-card">
 
-              <!-- SECTION 1: ITEM TYPE & CATEGORY -->
+              <!-- SECTION 1: WHAT WOULD YOU LIKE TO ORDER & INSPIRATION PHOTOS -->
               <div class="form-section-block">
                 <div class="form-section-title">
                   <span class="section-step-num">1</span>
                   <div>
-                    <h3>Select Creation Category & Occasion</h3>
-                    <p>Choose the product collection and intended sentiment for your keepsake.</p>
-                  </div>
-                </div>
-
-                <div class="category-select-grid">
-                  <label class="cat-card-option">
-                    <input type="radio" name="orderCategory" value="bouquets" checked>
-                    <div class="cat-card-inner">
-                      <span class="cat-emoji">🌸</span>
-                      <h4>Floral Bouquet</h4>
-                      <p>Sunflowers, tulips, daisies, and eternal flower wraps.</p>
-                    </div>
-                  </label>
-
-                  <label class="cat-card-option">
-                    <input type="radio" name="orderCategory" value="amigurumi">
-                    <div class="cat-card-inner">
-                      <span class="cat-emoji">🧸</span>
-                      <h4>Amigurumi Plushie</h4>
-                      <p>Cute 3D stuffed animals, anime characters & desk buddies.</p>
-                    </div>
-                  </label>
-
-                  <label class="cat-card-option">
-                    <input type="radio" name="orderCategory" value="wearables">
-                    <div class="cat-card-inner">
-                      <span class="cat-emoji">🎀</span>
-                      <h4>Wearable & Hair Clips</h4>
-                      <p>Floral hairties, cat ear clips, cardigans, and tops.</p>
-                    </div>
-                  </label>
-
-                  <label class="cat-card-option">
-                    <input type="radio" name="orderCategory" value="bags">
-                    <div class="cat-card-inner">
-                      <span class="cat-emoji">👜</span>
-                      <h4>Bag or Potli</h4>
-                      <p>Rose potli bags, tote bags, clutches, and pouches.</p>
-                    </div>
-                  </label>
-
-                  <label class="cat-card-option">
-                    <input type="radio" name="orderCategory" value="keychains">
-                    <div class="cat-card-inner">
-                      <span class="cat-emoji">🔑</span>
-                      <h4>Keychain & Charm</h4>
-                      <p>Mini bag charms, mirror hangers & heart charms.</p>
-                    </div>
-                  </label>
-
-                  <label class="cat-card-option">
-                    <input type="radio" name="orderCategory" value="custom">
-                    <div class="cat-card-inner">
-                      <span class="cat-emoji">🪄</span>
-                      <h4>Completely Custom</h4>
-                      <p>Blankets, car decor, pet portraits & unique ideas.</p>
-                    </div>
-                  </label>
-                </div>
-
-                <div class="form-group" style="margin-top: 18px;">
-                  <label class="form-label" for="orderOccasion"><i class="fa-solid fa-gift"></i> Occasion / Gifting Sentiment</label>
-                  <select id="orderOccasion" class="form-input" onchange="customizer.updateRequestSummary()">
-                    <option value="birthday">🎂 Birthday Celebration / Milestone</option>
-                    <option value="love">💝 Love & Romance / Anniversary</option>
-                    <option value="heal_calm">🌿 Heal, Calm & Empathy</option>
-                    <option value="new_beginnings">🌱 New Beginnings & Graduation</option>
-                    <option value="just_because">🎁 Just Because / Self-Love Keepsake</option>
-                    <option value="other">✨ Other Special Moment</option>
-                  </select>
-                </div>
-              </div>
-
-              <!-- SECTION 2: DETAILS & INSPIRATION PHOTOS -->
-              <div class="form-section-block">
-                <div class="form-section-title">
-                  <span class="section-step-num">2</span>
-                  <div>
-                    <h3>Describe Your Vision & Inspo Photos</h3>
-                    <p>Provide details and attach reference screenshots or sketches.</p>
+                    <h3>What Would You Like Crafted?</h3>
+                    <p>Provide a name, describe your vision, and attach reference photos or sketches.</p>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label class="form-label" for="customItemTitle">Project Name / Item Title <span class="req">*</span></label>
-                  <input type="text" id="customItemTitle" class="form-input" placeholder="e.g. Everlasting Sunflower Bouquet or Rose Potli Bag" required>
+                  <label class="form-label" for="customItemTitle">Item Name / Creation Title <span class="req">*</span></label>
+                  <input type="text" id="customItemTitle" class="form-input" placeholder="e.g. Everlasting Sunflower Bouquet, Rose Potli Bag, Cute Frog Plushie" required>
                 </div>
 
                 <div class="form-group">
-                  <label class="form-label" for="customItemDescription">Detailed Description & Special Notes <span class="req">*</span></label>
-                  <textarea id="customItemDescription" rows="3" class="form-input" placeholder="Describe flower types, color placement, character expressions, ribbons, beads, or special requests..." required></textarea>
+                  <label class="form-label" for="customItemDescription">Description & Special Requests <span class="req">*</span></label>
+                  <textarea id="customItemDescription" rows="3" class="form-input" placeholder="Describe flower types, color placement, dimensions, character details, ribbons, or special requests..." required></textarea>
                 </div>
 
                 <!-- Drag & Drop Reference Image Upload -->
@@ -373,10 +295,10 @@
                 </div>
               </div>
 
-              <!-- SECTION 3: YARN TEXTURE & COLOR PALETTE -->
+              <!-- SECTION 2: YARN TEXTURE & COLOR PALETTE -->
               <div class="form-section-block">
                 <div class="form-section-title">
-                  <span class="section-step-num">3</span>
+                  <span class="section-step-num">2</span>
                   <div>
                     <h3>Choose Yarn Texture & Color Palette</h3>
                     <p>Select material feel and up to 4 custom color swatches.</p>
@@ -455,10 +377,10 @@
                 </div>
               </div>
 
-              <!-- SECTION 4: SIZE, ADD-ONS & DEADLINE -->
+              <!-- SECTION 3: SIZE, ADD-ONS & DEADLINE -->
               <div class="form-section-block">
                 <div class="form-section-title">
-                  <span class="section-step-num">4</span>
+                  <span class="section-step-num">3</span>
                   <div>
                     <h3>Size, Add-ons & Need-by Date</h3>
                     <p>Select dimensions and optional gift packaging or rush crafting.</p>
@@ -551,10 +473,10 @@
                 </div>
               </div>
 
-              <!-- SECTION 5: CONTACT & DELIVERY ADDRESS -->
+              <!-- SECTION 4: CONTACT & DELIVERY ADDRESS -->
               <div class="form-section-block">
                 <div class="form-section-title">
-                  <span class="section-step-num">5</span>
+                  <span class="section-step-num">4</span>
                   <div>
                     <h3>Your Contact & Delivery Address</h3>
                     <p>Creator will send your quote and WIP progress photos to your WhatsApp.</p>
@@ -739,17 +661,19 @@
       <div class="admin-container">
         <!-- Header -->
         <div class="admin-header">
-          <div>
+          <div class="admin-header-title-block">
             <div class="section-badge"><i class="fa-solid fa-sliders"></i> Creator Studio</div>
             <h2 class="section-title">Ooniverse Order Management</h2>
-            <p class="section-subtitle">Manage customer custom requests, update crafting stages, upload WIP progress photos, and publish new posts.</p>
           </div>
           <div class="admin-top-actions">
-            <button class="btn btn-secondary btn-sm" onclick="admin.openNewPostModal()">
-              <i class="fa-solid fa-plus"></i> Add New Post
+            <button class="btn btn-action-icon btn-admin-header-icon" onclick="admin.openProfileModal()" title="Account Settings" aria-label="Account Settings">
+              <i class="fa-solid fa-user-gear"></i>
             </button>
-            <button class="btn btn-outline-sm" onclick="admin.exportOrdersData()">
-              <i class="fa-solid fa-file-export"></i> Export JSON
+            <button class="btn btn-primary btn-action-icon btn-admin-header-icon" onclick="admin.openNewPostModal()" title="New Creation Post" aria-label="New Creation Post">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+            <button class="btn btn-action-icon btn-admin-header-icon" onclick="admin.handleLogout()" title="Logout" aria-label="Logout">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </button>
           </div>
         </div>

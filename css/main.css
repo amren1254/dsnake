@@ -4,22 +4,22 @@
    ========================================================= */
 
 :root {
-  /* Color Palette - Hunar Crochet Inspired Luxury Artisan Tones */
-  --bg-main: #FCF9F5;
+  /* Color Palette - User's Signature Soft Petal Blush Palette */
+  --bg-main: #F7ECF2;
   --bg-card: #FFFFFF;
-  --bg-card-subtle: #F7F1E8;
-  --bg-glass: rgba(252, 249, 245, 0.88);
-  --bg-glass-card: rgba(255, 255, 255, 0.82);
-  --border-subtle: #EBE1D5;
-  --border-focus: #C58940;
+  --bg-card-subtle: #F1DFEB;
+  --bg-glass: rgba(247, 236, 242, 0.90);
+  --bg-glass-card: rgba(255, 255, 255, 0.86);
+  --border-subtle: #E8D3E1;
+  --border-focus: #B5537E;
 
   /* Primary Brand Tones (Deep Wine Burgundy & Warm Amber Gold) */
   --primary-rose: #7D2E3A;
   --primary-rose-light: #9B3D4D;
-  --primary-rose-soft: #F9ECEE;
+  --primary-rose-soft: #F5DFEC;
   --primary-gold: #C58940;
   --primary-gold-light: #D49B55;
-  --primary-gold-soft: #FBF4EA;
+  --primary-gold-soft: #FAF0E4;
 
   /* Artisan Botanical & Yarn Colors */
   --yarn-terracotta: #B8533E;
@@ -60,9 +60,9 @@
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Shadows & Elevation */
-  --shadow-sm: 0 2px 8px rgba(60, 45, 30, 0.05);
-  --shadow-md: 0 8px 24px rgba(60, 45, 30, 0.08);
-  --shadow-lg: 0 16px 40px rgba(60, 45, 30, 0.12);
+  --shadow-sm: 0 2px 8px rgba(80, 50, 70, 0.05);
+  --shadow-md: 0 8px 24px rgba(80, 50, 70, 0.08);
+  --shadow-lg: 0 16px 40px rgba(80, 50, 70, 0.12);
   --shadow-glow: 0 0 25px rgba(125, 46, 58, 0.22);
 
   /* Transitions */
@@ -92,6 +92,14 @@ html {
 body {
   font-family: var(--font-body);
   background-color: var(--bg-main);
+  background-image: 
+    radial-gradient(ellipse at 85% 10%, rgba(253, 234, 244, 0.6), transparent 50%),
+    radial-gradient(ellipse at 15% 35%, rgba(242, 222, 235, 0.5), transparent 50%),
+    radial-gradient(ellipse at 80% 65%, rgba(235, 214, 229, 0.4), transparent 50%),
+    radial-gradient(ellipse at 10% 90%, rgba(250, 230, 242, 0.6), transparent 45%),
+    radial-gradient(#DEC2D4 0.85px, transparent 0.85px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 28px 28px;
+  background-attachment: fixed;
   color: var(--text-body);
   line-height: 1.6;
   min-height: 100vh;
@@ -100,47 +108,56 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Background Ambient Blobs */
+/* Background Atmospheric Ambient Blobs */
 .ambient-blob {
   position: fixed;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(95px);
   z-index: -1;
-  opacity: 0.45;
+  opacity: 0.5;
   pointer-events: none;
-  animation: floatBlobs 16s ease-in-out infinite alternate;
+  animation: floatBlobs 18s ease-in-out infinite alternate;
 }
 
 .blob-1 {
-  width: 450px;
-  height: 450px;
-  background: radial-gradient(circle, #E8A598 0%, rgba(232, 165, 152, 0) 70%);
-  top: -100px;
-  right: -100px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, #F2C4DE 0%, rgba(242, 196, 222, 0) 70%);
+  top: -120px;
+  right: -120px;
 }
 
 .blob-2 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, #C58940 0%, rgba(197, 137, 64, 0) 70%);
-  bottom: 10%;
-  left: -150px;
-  animation-delay: -5s;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, #E5C3D8 0%, rgba(229, 195, 216, 0) 70%);
+  bottom: 8%;
+  left: -180px;
+  animation-delay: -6s;
 }
 
 .blob-3 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, #7D2E3A 0%, rgba(125, 46, 58, 0) 70%);
-  top: 40%;
-  right: 10%;
-  animation-delay: -10s;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, #F7D4E7 0%, rgba(247, 212, 231, 0) 70%);
+  top: 38%;
+  right: 8%;
+  animation-delay: -12s;
+}
+
+.blob-4 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #D8BFD8 0%, rgba(216, 191, 216, 0) 70%);
+  bottom: 30%;
+  right: 25%;
+  animation-delay: -9s;
 }
 
 @keyframes floatBlobs {
-  0% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(30px) scale(1.08); }
-  100% { transform: translateY(-20px) scale(0.95); }
+  0% { transform: translateY(0) scale(1) rotate(0deg); }
+  50% { transform: translateY(35px) scale(1.08) rotate(4deg); }
+  100% { transform: translateY(-25px) scale(0.94) rotate(-3deg); }
 }
 
 /* Announcement Bar */
@@ -977,9 +994,17 @@ body {
   .hero-container {
     grid-template-columns: 1fr;
     gap: 36px;
+    text-align: center;
+  }
+  .hero-badge, .hero-bio {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-actions {
+    justify-content: center;
   }
   .hero-card-preview {
-    max-width: 480px;
+    max-width: 440px;
     margin: 0 auto;
   }
   .trust-grid {
@@ -991,6 +1016,12 @@ body {
 }
 
 @media (max-width: 768px) {
+  .site-header {
+    padding: 8px 0;
+  }
+  .header-container {
+    padding: 0 16px;
+  }
   .nav-menu, .btn-custom-cta {
     display: none;
   }
@@ -1002,13 +1033,91 @@ body {
   .mobile-nav-drawer.active {
     display: block;
   }
+  .announcement-bar {
+    font-size: 0.775rem;
+    padding: 6px 12px;
+  }
+  .announcement-content {
+    gap: 6px;
+  }
+  .hero-section {
+    padding: 30px 16px 24px;
+  }
   .hero-title {
-    font-size: 2.6rem;
+    font-size: clamp(2.1rem, 7vw, 2.8rem);
+    line-height: 1.15;
+  }
+  .hero-bio {
+    font-size: 1rem;
+    padding: 12px 16px;
   }
   .trust-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .trust-section {
+    padding: 40px 16px;
   }
   .footer-container {
     grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .site-footer {
+    padding: 40px 16px 24px;
+    margin-top: 48px;
+  }
+  .modal-card {
+    width: 95% !important;
+    max-width: 95vw !important;
+    max-height: 88vh;
+    padding: 24px 18px;
+    margin: 16px auto;
+  }
+  .toast {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: calc(100vw - 32px);
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-text h1 {
+    font-size: 1.15rem;
+  }
+  .brand-badge {
+    font-size: 0.65rem;
+  }
+  .logo-icon-wrap {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .hero-actions .btn {
+    width: 100%;
+  }
+  .hero-badge {
+    font-size: 0.775rem;
+    padding: 4px 12px;
+  }
+  .section-title {
+    font-size: 1.75rem;
+  }
+  .section-subtitle {
+    font-size: 0.925rem;
+  }
+  .polaroid-img-wrap {
+    aspect-ratio: 1/1;
+  }
+  .polaroid-float-badge {
+    font-size: 0.725rem;
+    padding: 6px 12px;
+    bottom: 80px;
+    left: 8px;
   }
 }

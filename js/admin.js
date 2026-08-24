@@ -117,20 +117,19 @@ class Admin {
     container.innerHTML = `
       <!-- Creator Top Header Banner -->
       <div class="admin-header">
-        <div>
+        <div class="admin-header-title-block">
           <div class="section-badge"><i class="fa-solid fa-crown"></i> Creator Studio &bull; SQLite Live DB</div>
           <h2 class="section-title">Ooniverse Orders & Quotations Pipeline</h2>
-          <p class="section-subtitle">Logged in as <strong>@${creator.username}</strong> (${creator.email} &bull; ${creator.mobile})</p>
         </div>
         <div class="admin-top-actions">
-          <button class="btn btn-secondary btn-sm" onclick="admin.openProfileModal()">
-            <i class="fa-solid fa-user-gear"></i> Account Settings
+          <button class="btn btn-action-icon btn-admin-header-icon" onclick="admin.openProfileModal()" title="Account Settings" aria-label="Account Settings">
+            <i class="fa-solid fa-user-gear"></i>
           </button>
-          <button class="btn btn-primary btn-sm" onclick="admin.openNewPostModal()">
-            <i class="fa-solid fa-plus"></i> New Creation Post
+          <button class="btn btn-primary btn-action-icon btn-admin-header-icon" onclick="admin.openNewPostModal()" title="New Creation Post" aria-label="New Creation Post">
+            <i class="fa-solid fa-plus"></i>
           </button>
-          <button class="btn btn-secondary btn-sm" onclick="admin.handleLogout()">
-            <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+          <button class="btn btn-action-icon btn-admin-header-icon" onclick="admin.handleLogout()" title="Logout" aria-label="Logout">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
           </button>
         </div>
       </div>
