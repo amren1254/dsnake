@@ -373,6 +373,25 @@
     padding: 0 16px;
     margin: 20px auto 50px;
   }
+  .tracker-search-box {
+    padding: 20px 16px;
+  }
+  .search-input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .search-input-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .tracker-result-card {
+    padding: 20px 16px;
+  }
+  .result-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
   .timeline-stepper {
     flex-direction: column;
     gap: 20px;
@@ -394,30 +413,24 @@
   .tracker-item-details {
     grid-template-columns: 1fr;
     gap: 20px;
+    padding: 16px;
   }
-  .tracker-card {
-    padding: 20px 16px;
-  }
-  .tracker-search-wrap {
-    flex-direction: column;
-    width: 100%;
-  }
-  .tracker-search-wrap .btn {
-    width: 100%;
-  }
-  .wip-photo-grid {
+  .wip-gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
 }
 
 @media (max-width: 480px) {
-  .wip-photo-grid {
+  .wip-gallery-grid {
     grid-template-columns: 1fr;
   }
-  .order-overview-header {
+  .demo-track-hints {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+  }
+  .btn-chip {
+    width: 100%;
+    text-align: left;
   }
 }

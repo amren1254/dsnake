@@ -44,8 +44,8 @@ class App {
       activeView.classList.add('active');
     }
 
-    // Update nav links
-    document.querySelectorAll('.nav-item').forEach(item => {
+    // Update nav links (desktop & mobile)
+    document.querySelectorAll('.nav-item, .mobile-nav-item').forEach(item => {
       item.classList.toggle('active', item.dataset.view === viewName);
     });
 

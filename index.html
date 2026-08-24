@@ -67,9 +67,8 @@
 
       <!-- Header Actions -->
       <div class="header-actions">
-        <a href="https://www.instagram.com/ooniverse_2404" target="_blank" rel="noopener noreferrer" class="btn btn-instagram" title="Visit Instagram @ooniverse_2404">
+        <a href="https://www.instagram.com/ooniverse_2404" target="_blank" rel="noopener noreferrer" class="btn btn-instagram btn-nav-ig" title="Visit Instagram @ooniverse_2404" aria-label="Visit Instagram @ooniverse_2404">
           <i class="fa-brands fa-instagram"></i>
-          <span>Instagram</span>
         </a>
         <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle menu" onclick="app.toggleMobileMenu()">
           <i class="fa-solid fa-bars"></i>
@@ -80,16 +79,16 @@
     <!-- Mobile Drawer Navigation -->
     <div class="mobile-nav-drawer" id="mobileNavDrawer">
       <div class="mobile-nav-links">
-        <button class="mobile-nav-item active" onclick="app.navigateTo('home')">
+        <button class="mobile-nav-item active" data-view="home" onclick="app.navigateTo('home')">
           <i class="fa-solid fa-sparkles"></i> Creations Feed
         </button>
-        <button class="mobile-nav-item" onclick="app.navigateTo('customizer')">
+        <button class="mobile-nav-item" data-view="customizer" onclick="app.navigateTo('customizer')">
           <i class="fa-solid fa-cart-shopping"></i> Order
         </button>
-        <button class="mobile-nav-item" onclick="app.navigateTo('tracker')">
+        <button class="mobile-nav-item" data-view="tracker" onclick="app.navigateTo('tracker')">
           <i class="fa-solid fa-box-archive"></i> Track My Order
         </button>
-        <button class="mobile-nav-item" onclick="app.navigateTo('admin')">
+        <button class="mobile-nav-item" data-view="admin" onclick="app.navigateTo('admin')">
           <i class="fa-solid fa-sliders"></i> Creator Dashboard
         </button>
       </div>

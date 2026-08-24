@@ -180,36 +180,33 @@ function seedInstagramCreations() {
     };
 
     for (const post of posts) {
-      const info = titleMap[post.shortcode] || {
-        title: `Ooniverse Creation #${post.shortcode}`,
-        cat: 'bouquets',
-        occasion: 'just_because',
-        sentiment: 'Artisan Keepsake',
-        meaning: 'Handcrafted bespoke crochet creation.',
-        price: 499,
-        yarn: 'Handcrafted Milk Cotton',
-        tag: '✨ Handmade'
-      };
-
-      const localImg = `/instagram/${post.shortcode}.jpg`;
+      const title = post.title || (post.caption ? post.caption.split('\n')[0].trim() : `Ooniverse Creation #${post.shortcode}`);
+      const category = post.category || 'bouquets';
+      const occasion = post.occasion || 'just_because';
+      const sentiment = post.sentiment || 'Artisan Keepsake';
+      const meaning = post.description || '';
+      const price = 299;
+      const yarn = post.yarn_type || '100% Milk Cotton';
+      const tag = post.tag || '✨ Handmade';
+      const localImg = post.local_image || `/instagram/${post.shortcode}.jpg`;
 
       insert.run(
         `post_${post.shortcode}`,
         post.shortcode,
-        info.title,
-        info.cat,
-        info.occasion || 'just_because',
-        info.sentiment || 'Artisan Keepsake',
-        info.meaning || '',
-        info.price,
+        title,
+        category,
+        occasion,
+        sentiment,
+        meaning,
+        price,
         localImg,
-        post.caption || 'Handcrafted with love by @ooniverse_2404 🧶 DM for custom colors and orders!',
-        info.yarn,
+        post.caption || '',
+        yarn,
         'Handcrafted Custom Size',
         post.likes || 12,
         post.is_video ? 1 : 0,
         post.video_url || null,
-        info.tag
+        tag
       );
     }
     console.log(`✅ Seeded ${posts.length} real Instagram posts with INR prices into SQLite database.`);

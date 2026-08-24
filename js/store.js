@@ -41,28 +41,30 @@ function inferTitleFromCaption(caption = '', shortcode = '') {
 
 export const INITIAL_INSTAGRAM_CREATIONS = (Array.isArray(rawInstagramPosts) ? rawInstagramPosts : []).map(post => {
   const curated = CURATED_METADATA[post.shortcode] || {};
-  const cat = curated.category || post.category || inferCategoryFromCaption(post.caption);
-  const title = curated.title || post.title || inferTitleFromCaption(post.caption, post.shortcode);
-  const yarn = curated.yarn_type || post.yarn_type || '100% Milk Cotton';
+  const cat = post.category || curated.category || inferCategoryFromCaption(post.caption);
+  const title = post.title || (post.caption ? post.caption.split('\n')[0].trim() : `Ooniverse Creation #${post.shortcode}`);
+  const description = typeof post.description === 'string' ? post.description : (post.caption ? post.caption.split('\n').slice(1).join('\n').trim() : '');
+  const yarn = post.yarn_type || curated.yarn_type || 'Soft Cotton & Elastic';
   const img = post.local_image || (post.shortcode ? `/instagram/${post.shortcode}.jpg` : (post.display_url || '/images/sunflower_bouquet.jpg'));
 
   return {
     id: `post_${post.shortcode}`,
     shortcode: post.shortcode,
     title: title,
+    description: description,
     category: cat,
-    occasion: curated.occasion || post.occasion || 'just_because',
-    sentiment: curated.sentiment || post.sentiment || 'Artisan Keepsake',
-    meaning: curated.meaning || post.meaning || 'Handcrafted bespoke crochet made with love.',
+    occasion: post.occasion || curated.occasion || 'just_because',
+    sentiment: post.sentiment || curated.sentiment || 'Artisan Keepsake',
+    meaning: curated.meaning || post.meaning || '',
     image: img,
-    caption: post.caption || 'Handcrafted with love by @ooniverse_2404 🧶 DM for custom orders!',
+    caption: post.caption || '',
     yarn_type: yarn,
     yarnType: yarn,
     dimensions: curated.dimensions || post.dimensions || 'Handcrafted Custom Size',
     likes: post.likes || 12,
     is_video: post.is_video ? 1 : 0,
     video_url: post.video_url || null,
-    tag: curated.tag || post.tag || '✨ Hand-Stitched',
+    tag: post.tag || curated.tag || '✨ Hand-Stitched',
     created_at: post.created_at || (post.timestamp ? new Date(post.timestamp * 1000).toISOString() : new Date().toISOString())
   };
 });
@@ -74,9 +76,8 @@ class Store {
     this.token = localStorage.getItem('ooniverse_creator_jwt') || null;
     this.creator = JSON.parse(localStorage.getItem('ooniverse_creator_info') || 'null');
     
-    // Load cached creations or initialize with all 12 authentic Instagram posts
-    const savedCreations = localStorage.getItem('ooniverse_cached_creations');
-    this.creations = savedCreations ? JSON.parse(savedCreations) : [...INITIAL_INSTAGRAM_CREATIONS];
+    // Always start with synced creations (with fallback to cached additions)
+    this.creations = [...INITIAL_INSTAGRAM_CREATIONS];
 
     this.orders = JSON.parse(localStorage.getItem('ooniverse_cached_orders') || '[]');
     this.likedPosts = JSON.parse(localStorage.getItem('ooniverse_liked_posts') || '[]');

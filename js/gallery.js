@@ -89,16 +89,14 @@ class Gallery {
       const rawLikes = Number(item.likes) || 12;
       const formattedLikes = rawLikes >= 1000 ? `${(rawLikes / 1000).toFixed(rawLikes >= 10000 ? 0 : 1)}k` : rawLikes;
 
-      let cleanCaption = (item.caption || '')
-        .replace(/#\w+/g, '')
-        .replace(/\s+/g, ' ')
-        .trim();
-      if (!cleanCaption) cleanCaption = `Handcrafted custom crochet keepsake stitched with love.`;
+      const title = item.title || 'Handcrafted Crochet Piece';
+      const yarn = item.yarn_type || item.yarnType || '100% Milk Cotton';
+      const description = typeof item.description === 'string' ? item.description : (item.caption || '');
 
       return `
         <article class="post-card" data-id="${item.id}">
           <div class="post-image-wrap">
-            <img src="${item.image}" alt="${item.title}" class="post-img" loading="lazy">
+            <img src="${item.image}" alt="${title}" class="post-img" loading="lazy">
             
             ${item.sentiment ? `
               <div class="post-badge">
@@ -123,18 +121,21 @@ class Gallery {
           </div>
 
           <div class="post-body">
-            <div class="post-header-main">
-              <h3 class="post-title">${item.title}</h3>
-              <span class="post-yarn-chip"><i class="fa-solid fa-seedling"></i> ${item.yarn_type || item.yarnType || 'Milk Cotton'}</span>
+            <h3 class="post-title">${title}</h3>
+            <div class="post-yarn-chip">
+              <i class="fa-solid fa-seedling"></i>
+              <span>${yarn}</span>
             </div>
 
-            <p class="post-desc">${cleanCaption}</p>
+            ${description ? `<p class="post-desc">${description}</p>` : ''}
+
+            <hr class="post-card-divider">
 
             <div class="post-footer-actions">
               <a href="${igPostUrl}" target="_blank" rel="noopener noreferrer" class="btn-card-ig" title="View on Instagram (@ooniverse_2404)" aria-label="View on Instagram">
                 <i class="fa-brands fa-instagram"></i>
               </a>
-              <button class="btn btn-primary btn-card-order" onclick="gallery.orderSimilar('${item.id}')" title="Order This Piece" aria-label="Order This Piece">
+              <button class="btn btn-primary btn-card-order" onclick="gallery.orderSimilar('${item.id}')" title="Order" aria-label="Order">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span>Order</span>
               </button>

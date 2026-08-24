@@ -380,6 +380,18 @@ body {
   box-shadow: 0 6px 18px rgba(220, 39, 67, 0.35);
 }
 
+.btn-nav-ig {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
 .btn-outline-sm {
   background: transparent;
   color: var(--primary-rose);
@@ -407,6 +419,9 @@ body {
   font-size: 1.2rem;
   color: var(--text-dark);
   cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
 }
 
 /* Mobile Drawer */
@@ -1000,11 +1015,14 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
-  .hero-actions {
+  .hero-stats {
+    justify-content: center;
+  }
+  .hero-buttons {
     justify-content: center;
   }
   .hero-card-preview {
-    max-width: 440px;
+    max-width: 420px;
     margin: 0 auto;
   }
   .trust-grid {
@@ -1015,23 +1033,24 @@ body {
   }
 }
 
-@media (max-width: 768px) {
-  .site-header {
-    padding: 8px 0;
-  }
-  .header-container {
-    padding: 0 16px;
-  }
-  .nav-menu, .btn-custom-cta {
+@media (max-width: 880px) {
+  .nav-menu {
     display: none;
   }
   .mobile-toggle {
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
   .mobile-nav-drawer.active {
     display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    padding: 6px 0;
+  }
+  .header-container {
+    padding: 0 16px;
   }
   .announcement-bar {
     font-size: 0.775rem;
@@ -1041,22 +1060,48 @@ body {
     gap: 6px;
   }
   .hero-section {
-    padding: 30px 16px 24px;
+    padding: 24px 16px 20px;
   }
   .hero-title {
-    font-size: clamp(2.1rem, 7vw, 2.8rem);
+    font-size: clamp(2rem, 6.5vw, 2.75rem);
     line-height: 1.15;
   }
   .hero-bio {
-    font-size: 1rem;
+    font-size: 0.95rem;
     padding: 12px 16px;
+    text-align: left;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    max-width: 440px;
+    margin: 0 auto 24px;
+  }
+  .stat-pill {
+    padding: 8px 6px;
+    text-align: center;
+    align-items: center;
+  }
+  .stat-num {
+    font-size: 1.25rem;
+  }
+  .stat-lbl {
+    font-size: 0.65rem;
+  }
+  .artisan-polaroid {
+    transform: none !important;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 12px;
   }
   .trust-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
-  .trust-section {
-    padding: 40px 16px;
+  .trust-features {
+    padding: 0 16px;
+    margin: 20px auto 40px;
   }
   .footer-container {
     grid-template-columns: 1fr;
@@ -1081,24 +1126,34 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  .brand-text h1 {
-    font-size: 1.15rem;
+@media (max-width: 520px) {
+  .brand-name {
+    font-size: 1.25rem;
   }
-  .brand-badge {
-    font-size: 0.65rem;
+  .brand-handle {
+    font-size: 0.7rem;
   }
-  .logo-icon-wrap {
-    width: 36px;
-    height: 36px;
-    font-size: 1.2rem;
+  .logo-badge {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
   }
-  .hero-actions {
+  .btn-nav-ig {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+  .mobile-toggle {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+  .hero-buttons {
     flex-direction: column;
     width: 100%;
     gap: 10px;
   }
-  .hero-actions .btn {
+  .hero-buttons .btn {
     width: 100%;
   }
   .hero-badge {
@@ -1110,14 +1165,5 @@ body {
   }
   .section-subtitle {
     font-size: 0.925rem;
-  }
-  .polaroid-img-wrap {
-    aspect-ratio: 1/1;
-  }
-  .polaroid-float-badge {
-    font-size: 0.725rem;
-    padding: 6px 12px;
-    bottom: 80px;
-    left: 8px;
   }
 }
