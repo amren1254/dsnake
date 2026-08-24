@@ -1,6 +1,6 @@
 # 🧶 Ooniverse Crochet Order Management System
 
-A bespoke artisan web application for **Ooniverse (@ooniverse_2404)** that features genuine Instagram post media, an interactive custom order wizard with reference photo upload, real-time stitch progress tracking, and a secure Creator Studio backed by an **SQLite database**.
+A bespoke artisan web application for **Ooniverse (@ooniverse_2404)** inspired by luxury botanical couture (Hunar Crochet aesthetic), featuring authentic Instagram media, emotion/sentiment categorization (floriography & occasions), an interactive 1-click custom order form, real-time stitch progress tracking, and a secure Creator Studio backed by an **SQLite database**.
 
 ---
 

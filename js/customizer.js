@@ -4,25 +4,24 @@
  */
 import { store } from './store.js';
 
-// Curated artisan yarn color swatches
+// Curated artisan yarn color swatches (Hunar Crochet aesthetic)
 const COLOR_SWATCHES = [
-  { name: 'Matcha Sage', hex: '#8A9A86', category: 'green' },
-  { name: 'Forest Green', hex: '#3E5C43', category: 'green' },
-  { name: 'Mint Sorbet', hex: '#A8DADC', category: 'green' },
-  { name: 'Strawberry Red', hex: '#E76F51', category: 'red' },
-  { name: 'Blush Pink', hex: '#F4ACB7', category: 'pink' },
-  { name: 'Sakura Petal', hex: '#FFD1DC', category: 'pink' },
-  { name: 'Oatmeal Cream', hex: '#FAEDCD', category: 'neutral' },
-  { name: 'Vanilla White', hex: '#FDFBF7', category: 'neutral' },
-  { name: 'Cocoa Brown', hex: '#6F4E37', category: 'neutral' },
-  { name: 'Honey Mustard', hex: '#E9C46A', category: 'yellow' },
-  { name: 'Buttercup', hex: '#FFF3B0', category: 'yellow' },
-  { name: 'Sunset Peach', hex: '#F4A261', category: 'orange' },
-  { name: 'Lavender Haze', hex: '#A084E8', category: 'purple' },
-  { name: 'Dusty Lilac', hex: '#CDB4DB', category: 'purple' },
-  { name: 'Sky Blue', hex: '#90E0EF', category: 'blue' },
-  { name: 'Denim Indigo', hex: '#2A6F97', category: 'blue' },
-  { name: 'Charcoal Noir', hex: '#333333', category: 'neutral' }
+  { name: 'Rose Wine Burgundy', hex: '#7D2E3A', category: 'red' },
+  { name: 'Blush Silk', hex: '#E8A598', category: 'pink' },
+  { name: 'Sakura Petal', hex: '#F7D6D0', category: 'pink' },
+  { name: 'Amber Honey', hex: '#C58940', category: 'yellow' },
+  { name: 'Warm Terracotta', hex: '#B8533E', category: 'red' },
+  { name: 'Cappuccino Beige', hex: '#D4C4B5', category: 'neutral' },
+  { name: 'Vanilla Silk', hex: '#FDFBF7', category: 'neutral' },
+  { name: 'Matcha Sage', hex: '#5B7065', category: 'green' },
+  { name: 'Forest Olive', hex: '#3E5C43', category: 'green' },
+  { name: 'Eucalyptus Mist', hex: '#A8BBA2', category: 'green' },
+  { name: 'Dusty Lilac', hex: '#8B729E', category: 'purple' },
+  { name: 'Lavender Mist', hex: '#C4B5D4', category: 'purple' },
+  { name: 'Sky Breeze', hex: '#90C2E7', category: 'blue' },
+  { name: 'Royal Indigo', hex: '#2B4162', category: 'blue' },
+  { name: 'Cocoa Velvet', hex: '#5A4334', category: 'neutral' },
+  { name: 'Midnight Espresso', hex: '#241A14', category: 'neutral' }
 ];
 
 const CATEGORY_NAMES = {

@@ -183,9 +183,9 @@
             <div class="section-badge">
               <i class="fa-brands fa-instagram"></i> Fresh From The Hook &bull; @ooniverse_2404
             </div>
-            <h2 class="section-title">Creator Crochet Portfolio</h2>
+            <h2 class="section-title">Artisan Crochet Portfolio & Collections</h2>
             <p class="section-subtitle">
-              Browse our authentic handcrafted Instagram creations. Click <strong>"Order Similar"</strong> to request a bespoke custom piece in your favorite colors and size!
+              Everlasting handmade crochet floral wraps, bespoke potlis, hairties, and plushies. Browse by product category or sentiment, and click <strong>"Order Similar"</strong> to request your custom quote!
             </p>
           </div>
 
@@ -194,14 +194,27 @@
             <div class="category-pills" id="categoryPills">
               <button class="cat-pill active" data-category="all">All Creations</button>
               <button class="cat-pill" data-category="bouquets">🌸 Floral Bouquets</button>
-              <button class="cat-pill" data-category="amigurumi">🧸 Amigurumi Plushies</button>
               <button class="cat-pill" data-category="wearables">🎀 Wearables & Hairties</button>
               <button class="cat-pill" data-category="bags">👜 Bags & Potlis</button>
-              <button class="cat-pill" data-category="keychains">🔑 Keychains & Charms</button>
+              <button class="cat-pill" data-category="amigurumi">🧸 Amigurumi Plushies</button>
+              <button class="cat-pill" data-category="keychains">🔑 Charms & Keychains</button>
             </div>
             <div class="gallery-search">
               <i class="fa-solid fa-magnifying-glass search-icon"></i>
               <input type="text" id="gallerySearchInput" placeholder="Search creations (e.g. potli, sunflower, hairtie)..." class="search-input">
+            </div>
+          </div>
+
+          <!-- Occasion & Sentiment Filter Bar (Hunar Crochet Style) -->
+          <div class="occasion-filter-bar" id="occasionFilterBar">
+            <span class="occasion-label"><i class="fa-solid fa-gift"></i> Shop by Sentiment:</span>
+            <div class="occasion-tabs">
+              <button class="occasion-tab active" data-occasion="all">✨ All</button>
+              <button class="occasion-tab" data-occasion="love">💝 Love & Romance</button>
+              <button class="occasion-tab" data-occasion="birthday">🎂 Birthday</button>
+              <button class="occasion-tab" data-occasion="heal_calm">🌿 Heal & Calm</button>
+              <button class="occasion-tab" data-occasion="new_beginnings">🌱 New Beginnings</button>
+              <button class="occasion-tab" data-occasion="just_because">🎁 Just Because</button>
             </div>
           </div>
 
@@ -216,7 +229,7 @@
               <div class="inspo-icon"><i class="fa-solid fa-wand-sparkles"></i></div>
               <div class="inspo-text">
                 <h3>Have a unique idea or custom character in mind?</h3>
-                <p>We bring any sketch, video game character, pet portrait, or custom bouquet to life.</p>
+                <p>We bring any sketch, video game character, pet portrait, or bespoke eternity bouquet to life.</p>
               </div>
             </div>
             <button class="btn btn-primary btn-md" onclick="app.navigateTo('customizer')">
@@ -250,8 +263,8 @@
                 <div class="form-section-title">
                   <span class="section-step-num">1</span>
                   <div>
-                    <h3>Select Creation Category</h3>
-                    <p>Choose what type of handcrafted crochet piece you would like made.</p>
+                    <h3>Select Creation Category & Occasion</h3>
+                    <p>Choose the product collection and intended sentiment for your keepsake.</p>
                   </div>
                 </div>
 
@@ -309,6 +322,18 @@
                       <p>Blankets, car decor, pet portraits & unique ideas.</p>
                     </div>
                   </label>
+                </div>
+
+                <div class="form-group" style="margin-top: 18px;">
+                  <label class="form-label" for="orderOccasion"><i class="fa-solid fa-gift"></i> Occasion / Gifting Sentiment</label>
+                  <select id="orderOccasion" class="form-input" onchange="customizer.updateRequestSummary()">
+                    <option value="birthday">🎂 Birthday Celebration / Milestone</option>
+                    <option value="love">💝 Love & Romance / Anniversary</option>
+                    <option value="heal_calm">🌿 Heal, Calm & Empathy</option>
+                    <option value="new_beginnings">🌱 New Beginnings & Graduation</option>
+                    <option value="just_because">🎁 Just Because / Self-Love Keepsake</option>
+                    <option value="other">✨ Other Special Moment</option>
+                  </select>
                 </div>
               </div>
 

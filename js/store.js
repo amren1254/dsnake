@@ -1,6 +1,6 @@
 /**
  * OONIVERSE CLIENT STATE STORE & API CONNECTOR
- * Embeds authentic Instagram creations directly with offline fallback & SQLite database sync
+ * Embeds authentic Instagram creations directly with Hunar Crochet inspired sentiment & occasion categorization
  */
 
 export const INITIAL_INSTAGRAM_CREATIONS = [
@@ -9,6 +9,9 @@ export const INITIAL_INSTAGRAM_CREATIONS = [
     shortcode: "DWD3OiYCWBG",
     title: "Viral Floral & Bow Crochet Hairtie",
     category: "wearables",
+    occasion: "just_because",
+    sentiment: "Playful Charm",
+    meaning: "Delicate hand-tied ribbon bow and floral accent for hair.",
     image: "/instagram/DWD3OiYCWBG.jpg",
     caption: "Viral Floral & Bow crochet hairtie 🎀 Stitched with love. DM for custom colors and orders! #crochethairtie #viralreels",
     yarn_type: "Soft Cotton & Elastic",
@@ -24,6 +27,9 @@ export const INITIAL_INSTAGRAM_CREATIONS = [
     shortcode: "DcWMRVLJcI1",
     title: "Everlasting Tulip & Daisy Floral Wrap",
     category: "bouquets",
+    occasion: "birthday",
+    sentiment: "Joy & Everlasting Bond",
+    meaning: "Symbolizes cheerful adoration and memories that never fade.",
     image: "/instagram/DcWMRVLJcI1.jpg",
     caption: "Hand-tied eternal tulip and daisy bouquet 🌸 100% milk cotton yarn. Never withers! #crochetflowers #bouquets",
     yarn_type: "100% Milk Cotton",
@@ -39,6 +45,9 @@ export const INITIAL_INSTAGRAM_CREATIONS = [
     shortcode: "DcMQNKvzau5",
     title: "Viral Rose Petal Potli Handbag",
     category: "bags",
+    occasion: "love",
+    sentiment: "Festive Elegance",
+    meaning: "Layered rose petal silhouette with luxury golden drawstring cord.",
     image: "/instagram/DcMQNKvzau5.jpg",
     caption: "Viral Rose Petal Potli Handbag 🌹 Silk cotton finish with golden drawstring tassels. DM to order! #rosepotli #crochetbag",
     yarn_type: "Lustrous Silky Cotton",
@@ -54,6 +63,9 @@ export const INITIAL_INSTAGRAM_CREATIONS = [
     shortcode: "DcRFjycJxe8",
     title: "Cute Mini Amigurumi Desk Companion",
     category: "amigurumi",
+    occasion: "heal_calm",
+    sentiment: "Cozy Comfort & Cheer",
+    meaning: "A tactile pocket plush buddy that brings a gentle smile to your workspace.",
     image: "/instagram/DcRFjycJxe8.jpg",
     caption: "Mini amigurumi plushie buddy 🧸 Soft chenille velvet yarn. Custom character requests welcome! #amigurumi #crochetplush",
     yarn_type: "Chunky Velvet Yarn",
@@ -69,6 +81,9 @@ export const INITIAL_INSTAGRAM_CREATIONS = [
     shortcode: "DcOhYSXJWtt",
     title: "Mini Daisy Bag Charm & Keychain",
     category: "keychains",
+    occasion: "just_because",
+    sentiment: "Everyday Sunshine",
+    meaning: "Hand-stitched botanical charm to brighten bags, airpods & keys.",
     image: "/instagram/DcOhYSXJWtt.jpg",
     caption: "Handmade daisy crochet charm & keychain 🌼 Perfect gift accent for backpacks, handbags & keys.",
     yarn_type: "Organic Cotton",
@@ -84,6 +99,9 @@ export const INITIAL_INSTAGRAM_CREATIONS = [
     shortcode: "DcITdLbpduk",
     title: "Artisan Pastel Flower Bouquet",
     category: "bouquets",
+    occasion: "love",
+    sentiment: "Enduring Affection",
+    meaning: "Soft romantic blush and milk hues wrapped in rustic vintage kraft paper.",
     image: "/instagram/DcITdLbpduk.jpg",
     caption: "Pastel blooms hand-wrapped in rustic kraft paper 💐 Custom color combinations available upon request.",
     yarn_type: "Milk Cotton Yarn",
@@ -99,6 +117,9 @@ export const INITIAL_INSTAGRAM_CREATIONS = [
     shortcode: "DcIQe1EJCiZ",
     title: "Bespoke Sunflower & Rose Arrangement",
     category: "bouquets",
+    occasion: "new_beginnings",
+    sentiment: "Admiration & Bright Hopes",
+    meaning: "Combines the sunny optimism of sunflowers with timeless rose petals.",
     image: "/instagram/DcIQe1EJCiZ.jpg",
     caption: "Sunflower & classic rose eternity wrap 🌻 Handcrafted with pure love. DM for orders!",
     yarn_type: "100% Milk Cotton",
@@ -114,6 +135,9 @@ export const INITIAL_INSTAGRAM_CREATIONS = [
     shortcode: "DZkN5djpgpY",
     title: "Handcrafted Heart Charm Accessory",
     category: "keychains",
+    occasion: "love",
+    sentiment: "Heartfelt Keepsake",
+    meaning: "Plush velvet token symbolizing warm love and treasured connection.",
     image: "/instagram/DZkN5djpgpY.jpg",
     caption: "Heart crochet charm for bags & keys 💖 Hand-stitched in plush velvet.",
     yarn_type: "Plush Velvet",
@@ -129,6 +153,9 @@ export const INITIAL_INSTAGRAM_CREATIONS = [
     shortcode: "DYKWz-MJyqx",
     title: "Whimsical Butterfly Crochet Hairtie",
     category: "wearables",
+    occasion: "birthday",
+    sentiment: "Grace & Transformation",
+    meaning: "Pastel wings stitched in soft organic cotton to elevate everyday styling.",
     image: "/instagram/DYKWz-MJyqx.jpg",
     caption: "Whimsical butterfly hair accessory 🦋 Soft pastel cotton. DM for custom colors! #smallbusinessowner",
     yarn_type: "Pastel Cotton",
@@ -144,6 +171,9 @@ export const INITIAL_INSTAGRAM_CREATIONS = [
     shortcode: "DX8KlieJ3xs",
     title: "Lavender & Chamomile Crochet Stem",
     category: "bouquets",
+    occasion: "heal_calm",
+    sentiment: "Serenity & Healing",
+    meaning: "Calming botanical stem that creates a mindful, tranquil sanctuary at home.",
     image: "/instagram/DX8KlieJ3xs.jpg",
     caption: "Lavender & chamomile single stems 🌿 Everlasting botanical decor for your bedside or workspace.",
     yarn_type: "Milk Cotton Yarn",
@@ -159,6 +189,9 @@ export const INITIAL_INSTAGRAM_CREATIONS = [
     shortcode: "DXyQp0EJUvx",
     title: "Evergreen Sunflower Single Stem Wrap",
     category: "bouquets",
+    occasion: "just_because",
+    sentiment: "Pure Optimism & Gratitude",
+    meaning: "A permanent ray of sunshine requiring zero water or sunlight.",
     image: "/instagram/DXyQp0EJUvx.jpg",
     caption: "Single blooming sunflower wrap with silk bow 🌻 A sunny smile that lasts forever!",
     yarn_type: "Organic Cotton Yarn",
@@ -174,6 +207,9 @@ export const INITIAL_INSTAGRAM_CREATIONS = [
     shortcode: "DXwOHr3pCCu",
     title: "Viral Cat Ear Crochet Hair Clips (Pair)",
     category: "wearables",
+    occasion: "just_because",
+    sentiment: "Playful Individuality",
+    meaning: "Whimsical fluffy chenille snap clips for cozy style statements.",
     image: "/instagram/DXwOHr3pCCu.jpg",
     caption: "Viral kitty cat ear hair clips (pair) 🐱 Fluffy soft chenille with snap clips. DM to order!",
     yarn_type: "Fluffy Chenille",
@@ -302,8 +338,8 @@ class Store {
     return { message: 'Profile updated', creator: this.creator };
   }
 
-  // --- CREATIONS (PORTFOLIO FEED) ---
-  async fetchCreations(category = 'all', search = '') {
+  // --- CREATIONS (PORTFOLIO FEED WITH OCCASION & CATEGORY FILTERING) ---
+  async fetchCreations(category = 'all', occasion = 'all', search = '') {
     try {
       let url = `${API_BASE}/creations?category=${encodeURIComponent(category)}`;
       if (search) url += `&search=${encodeURIComponent(search)}`;
@@ -314,26 +350,29 @@ class Store {
         if (Array.isArray(data) && data.length > 0) {
           this.creations = data;
           localStorage.setItem('ooniverse_cached_creations', JSON.stringify(this.creations));
-          return this.filterCreationsList(this.creations, category, search);
+          return this.filterCreationsList(this.creations, category, occasion, search);
         }
       }
     } catch (err) {
       console.warn('Using embedded portfolio creations:', err);
     }
 
-    return this.filterCreationsList(this.creations, category, search);
+    return this.filterCreationsList(this.creations, category, occasion, search);
   }
 
-  filterCreationsList(list, category, search) {
+  filterCreationsList(list, category = 'all', occasion = 'all', search = '') {
     return list.filter(item => {
       const matchesCat = category === 'all' || item.category === category;
+      const matchesOccasion = occasion === 'all' || item.occasion === occasion;
       const s = search.toLowerCase().trim();
       const matchesSearch = !s || 
         (item.title && item.title.toLowerCase().includes(s)) ||
         (item.caption && item.caption.toLowerCase().includes(s)) ||
+        (item.sentiment && item.sentiment.toLowerCase().includes(s)) ||
+        (item.meaning && item.meaning.toLowerCase().includes(s)) ||
         (item.yarn_type && item.yarn_type.toLowerCase().includes(s)) ||
         (item.yarnType && item.yarnType.toLowerCase().includes(s));
-      return matchesCat && matchesSearch;
+      return matchesCat && matchesOccasion && matchesSearch;
     });
   }
 
@@ -381,6 +420,9 @@ class Store {
       shortcode: `custom_${Date.now()}`,
       title: creationData.title,
       category: creationData.category,
+      occasion: creationData.occasion || 'just_because',
+      sentiment: creationData.sentiment || 'Artisan Keepsake',
+      meaning: creationData.meaning || 'Handcrafted bespoke crochet creation.',
       image: creationData.image,
       caption: creationData.caption,
       yarn_type: creationData.yarnType || 'Handmade Milk Cotton',
@@ -467,6 +509,8 @@ class Store {
         shippingAddress: found.shipping_address || found.shippingAddress,
         title: found.title,
         category: found.category,
+        occasion: found.occasion,
+        sentiment: found.sentiment,
         description: found.description,
         yarnType: found.yarn_type || found.yarnType,
         yarnLabel: found.yarn_label || found.yarnLabel,
@@ -501,6 +545,7 @@ class Store {
       customer_instagram: orderPayload.customerInstagram || '',
       title: orderPayload.title,
       category: orderPayload.category,
+      occasion: orderPayload.occasion || 'all',
       description: orderPayload.description,
       yarn_type: orderPayload.yarnType,
       yarn_label: orderPayload.yarnLabel,

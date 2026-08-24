@@ -27,7 +27,8 @@ async function runTests() {
     assert(res.status === 200, `Homepage HTTP status is 200 (Got ${res.status})`);
     const html = await res.text();
     assert(html.includes('Ooniverse'), 'Homepage contains "Ooniverse" brand');
-    assert(html.includes('Creator Crochet Portfolio'), 'Homepage contains "Creator Crochet Portfolio"');
+    assert(html.includes('Artisan Crochet Portfolio'), 'Homepage contains "Artisan Crochet Portfolio"');
+    assert(html.includes('Shop by Sentiment'), 'Homepage contains Hunar-inspired sentiment filtering');
     assert(!html.includes('From $36'), 'Homepage does NOT contain old "$36" price');
     assert(!html.includes('Estimate Breakdown'), 'Customizer does NOT contain "Estimate Breakdown"');
   } catch (err) {
@@ -51,22 +52,28 @@ async function runTests() {
     }
   }
 
-  // --- TEST 3: Creations API & Portfolio Categories ---
-  console.log('\n3. Verifying Creations API & Category Filtering...');
+  // --- TEST 3: Creations API & Category / Occasion Filtering ---
+  console.log('\n3. Verifying Creations API & Category / Occasion Filtering...');
   try {
     const res = await fetch(`${BASE_URL}/api/creations`);
     assert(res.status === 200, 'GET /api/creations returns 200');
     const creations = await res.json();
     assert(Array.isArray(creations) && creations.length >= 12, `Creations array has ${creations.length} items (expected >= 12)`);
 
+    // Category tests
     const categories = ['bouquets', 'wearables', 'bags', 'amigurumi', 'keychains'];
     for (const cat of categories) {
       const catRes = await fetch(`${BASE_URL}/api/creations?category=${cat}`);
       const catItems = await catRes.json();
       assert(catItems.length > 0 && catItems.every(i => i.category === cat), `Category "${cat}" returns ${catItems.length} matching items`);
     }
+
+    // Occasion sentiment tests
+    const occasionRes = await fetch(`${BASE_URL}/api/creations?occasion=love`);
+    const occasionItems = await occasionRes.json();
+    assert(occasionItems.length > 0 && occasionItems.every(i => i.occasion === 'love'), `Occasion "love" returns ${occasionItems.length} romantic sentiment items`);
   } catch (err) {
-    assert(false, `Creations API failed: ${err.message}`);
+    assert(false, `Creations API error: ${err.message}`);
   }
 
   // --- TEST 4: Creator Authentication ---

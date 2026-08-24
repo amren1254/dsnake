@@ -1,12 +1,13 @@
 /**
- * OONIVERSE CREATIONS GALLERY (CREATOR INSTAGRAM PORTFOLIO)
- * Displays authentic creations from @ooniverse_2404 without money/prices
+ * OONIVERSE CREATIONS GALLERY
+ * Categorized portfolio with Occasion & Sentiment filters inspired by Hunar Crochet
  */
 import { store } from './store.js';
 
 class Gallery {
   constructor() {
     this.currentCategory = 'all';
+    this.currentOccasion = 'all';
     this.searchQuery = '';
     this.init();
   }
@@ -17,7 +18,7 @@ class Gallery {
     this.render();
 
     // Then attempt background sync with backend SQLite
-    await store.fetchCreations(this.currentCategory, this.searchQuery);
+    await store.fetchCreations(this.currentCategory, this.currentOccasion, this.searchQuery);
     this.render();
 
     window.addEventListener('ooniverse_store_creations', () => {
@@ -26,12 +27,24 @@ class Gallery {
   }
 
   bindEvents() {
-    const pills = document.querySelectorAll('.cat-pill');
-    pills.forEach(pill => {
+    // Category Pills
+    const catPills = document.querySelectorAll('.cat-pill');
+    catPills.forEach(pill => {
       pill.addEventListener('click', (e) => {
-        pills.forEach(p => p.classList.remove('active'));
+        catPills.forEach(p => p.classList.remove('active'));
         e.currentTarget.classList.add('active');
         this.currentCategory = e.currentTarget.dataset.category;
+        this.render();
+      });
+    });
+
+    // Occasion Sentiment Tabs
+    const occasionTabs = document.querySelectorAll('.occasion-tab');
+    occasionTabs.forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        occasionTabs.forEach(t => t.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        this.currentOccasion = e.currentTarget.dataset.occasion;
         this.render();
       });
     });
@@ -50,15 +63,15 @@ class Gallery {
     if (!grid) return;
 
     const allCreations = store.getCreations();
-    const creations = store.filterCreationsList(allCreations, this.currentCategory, this.searchQuery);
+    const creations = store.filterCreationsList(allCreations, this.currentCategory, this.currentOccasion, this.searchQuery);
     const likedPosts = store.getLikedPosts();
 
     if (!creations || creations.length === 0) {
       grid.innerHTML = `
         <div class="gallery-empty-state" style="grid-column: 1/-1; text-align: center; padding: 48px; background: #FFF; border-radius: 16px; border: 1px dashed var(--border-subtle);">
-          <i class="fa-solid fa-sparkles" style="font-size: 2rem; color: var(--primary-rose); margin-bottom: 12px;"></i>
-          <h3>No creations found in "${this.currentCategory}"</h3>
-          <p style="color: var(--text-muted); margin: 8px 0 16px;">Request a bespoke custom piece in this category!</p>
+          <i class="fa-solid fa-wand-sparkles" style="font-size: 2rem; color: var(--primary-rose); margin-bottom: 12px;"></i>
+          <h3>No creations found for selected filter</h3>
+          <p style="color: var(--text-muted); margin: 8px 0 16px;">Request a completely custom piece tailored to your vision & occasion!</p>
           <button class="btn btn-primary btn-sm" onclick="app.navigateTo('customizer')">
             <i class="fa-solid fa-wand-magic-sparkles"></i> Request Custom Quote
           </button>
@@ -99,7 +112,19 @@ class Gallery {
               <span class="post-badge-order"><i class="fa-solid fa-sparkles"></i> Made to Order</span>
             </div>
 
+            ${item.sentiment ? `
+              <div class="post-sentiment-tag">
+                <i class="fa-solid fa-feather-pointed"></i> <span>${item.sentiment}</span>
+              </div>
+            ` : ''}
+
             <p class="post-desc">${item.caption}</p>
+
+            ${item.meaning ? `
+              <div class="post-meaning-quote">
+                &ldquo;${item.meaning}&rdquo;
+              </div>
+            ` : ''}
 
             <div class="post-meta-details">
               <div class="meta-row">
@@ -107,7 +132,7 @@ class Gallery {
                 <span>Yarn: <strong>${item.yarn_type || item.yarnType || 'Milk Cotton'}</strong></span>
               </div>
               <div class="meta-row">
-                <i class="fa-solid fa-heart" style="color:#EF4444;"></i>
+                <i class="fa-solid fa-heart" style="color:#7D2E3A;"></i>
                 <span><strong>${item.likes || 12}</strong> likes on Instagram</span>
               </div>
             </div>

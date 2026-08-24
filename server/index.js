@@ -183,7 +183,7 @@ app.put('/api/auth/profile', requireAuth, (req, res) => {
 
 // GET /api/creations
 app.get('/api/creations', (req, res) => {
-  const { category, search } = req.query;
+  const { category, occasion, search } = req.query;
   let query = 'SELECT * FROM creations';
   const params = [];
   const conditions = [];
@@ -193,10 +193,15 @@ app.get('/api/creations', (req, res) => {
     params.push(category);
   }
 
+  if (occasion && occasion !== 'all') {
+    conditions.push('occasion = ?');
+    params.push(occasion);
+  }
+
   if (search) {
-    conditions.push('(title LIKE ? OR caption LIKE ? OR yarn_type LIKE ?)');
+    conditions.push('(title LIKE ? OR caption LIKE ? OR yarn_type LIKE ? OR sentiment LIKE ? OR meaning LIKE ?)');
     const s = `%${search}%`;
-    params.push(s, s, s);
+    params.push(s, s, s, s, s);
   }
 
   if (conditions.length > 0) {
@@ -211,7 +216,7 @@ app.get('/api/creations', (req, res) => {
 
 // POST /api/creations
 app.post('/api/creations', requireAuth, (req, res) => {
-  const { title, category, price, image, caption, yarnType, dimensions, tag } = req.body;
+  const { title, category, occasion, sentiment, meaning, price, image, caption, yarnType, dimensions, tag } = req.body;
 
   if (!title || !category || !image) {
     return res.status(400).json({ error: 'Missing required creation fields.' });
@@ -219,8 +224,8 @@ app.post('/api/creations', requireAuth, (req, res) => {
 
   const id = `post_${Date.now()}`;
   const insert = db.prepare(`
-    INSERT INTO creations (id, shortcode, title, category, price, image, caption, yarn_type, dimensions, tag)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO creations (id, shortcode, title, category, occasion, sentiment, meaning, price, image, caption, yarn_type, dimensions, tag)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
   insert.run(
@@ -228,6 +233,9 @@ app.post('/api/creations', requireAuth, (req, res) => {
     `custom_${Date.now()}`,
     sanitizeText(title),
     category,
+    occasion ? sanitizeText(occasion) : 'all',
+    sentiment ? sanitizeText(sentiment) : 'Artisan Keepsake',
+    meaning ? sanitizeText(meaning) : '',
     parseFloat(price) || 299,
     image,
     caption ? caption.trim() : '',

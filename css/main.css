@@ -4,50 +4,54 @@
    ========================================================= */
 
 :root {
-  /* Color Palette - Warm Artisan Yarn Tones */
-  --bg-main: #FAF7F2;
+  /* Color Palette - Hunar Crochet Inspired Luxury Artisan Tones */
+  --bg-main: #FCF9F5;
   --bg-card: #FFFFFF;
-  --bg-card-subtle: #F6F1EA;
-  --bg-glass: rgba(255, 255, 255, 0.85);
-  --bg-glass-card: rgba(255, 255, 255, 0.72);
-  --border-subtle: #EBE4D8;
-  --border-focus: #D4A373;
+  --bg-card-subtle: #F7F1E8;
+  --bg-glass: rgba(252, 249, 245, 0.88);
+  --bg-glass-card: rgba(255, 255, 255, 0.82);
+  --border-subtle: #EBE1D5;
+  --border-focus: #C58940;
 
-  /* Primary Accent & Yarn Colors */
-  --primary-rose: #E76F51;
-  --primary-rose-light: #F4A261;
-  --primary-rose-soft: #FDE8E1;
-  
-  --yarn-terracotta: #D97757;
-  --yarn-sage: #8A9A86;
-  --yarn-sage-soft: #E8EFE7;
-  --yarn-mustard: #E9C46A;
-  --yarn-mustard-soft: #FCF6E5;
-  --yarn-lavender: #A084E8;
-  --yarn-lavender-soft: #F1EEFD;
-  --yarn-blush: #F4ACB7;
-  --yarn-blush-soft: #FCEEF1;
-  --yarn-cream: #FAEDCD;
-  --yarn-mocha: #6F4E37;
+  /* Primary Brand Tones (Deep Wine Burgundy & Warm Amber Gold) */
+  --primary-rose: #7D2E3A;
+  --primary-rose-light: #9B3D4D;
+  --primary-rose-soft: #F9ECEE;
+  --primary-gold: #C58940;
+  --primary-gold-light: #D49B55;
+  --primary-gold-soft: #FBF4EA;
+
+  /* Artisan Botanical & Yarn Colors */
+  --yarn-terracotta: #B8533E;
+  --yarn-sage: #5B7065;
+  --yarn-sage-soft: #EEF3F0;
+  --yarn-mustard: #C58940;
+  --yarn-mustard-soft: #FCF6EC;
+  --yarn-lavender: #8B729E;
+  --yarn-lavender-soft: #F3EEF7;
+  --yarn-blush: #E8A598;
+  --yarn-blush-soft: #FDF1EF;
+  --yarn-cream: #F5EFEB;
+  --yarn-mocha: #5A4334;
 
   /* Text & Contrast */
-  --text-dark: #2B2118;
-  --text-body: #594A3D;
-  --text-muted: #8C7B6E;
+  --text-dark: #241A14;
+  --text-body: #524235;
+  --text-muted: #827063;
   --text-light: #FFFFFF;
 
   /* Status Colors */
-  --status-new: #3B82F6;
+  --status-new: #2563EB;
   --status-new-bg: #EFF6FF;
-  --status-design: #8B5CF6;
+  --status-design: #7C3AED;
   --status-design-bg: #F5F3FF;
-  --status-progress: #F59E0B;
-  --status-progress-bg: #FFFBEB;
-  --status-check: #10B981;
+  --status-progress: #D97706;
+  --status-progress-bg: #FEF3C7;
+  --status-check: #059669;
   --status-check-bg: #ECFDF5;
-  --status-shipped: #6366F1;
+  --status-shipped: #4F46E5;
   --status-shipped-bg: #EEF2FF;
-  --status-done: #059669;
+  --status-done: #047857;
   --status-done-bg: #D1FAE5;
 
   /* Typography */
@@ -56,10 +60,10 @@
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Shadows & Elevation */
-  --shadow-sm: 0 2px 8px rgba(90, 70, 50, 0.05);
-  --shadow-md: 0 8px 24px rgba(90, 70, 50, 0.08);
-  --shadow-lg: 0 16px 40px rgba(90, 70, 50, 0.12);
-  --shadow-glow: 0 0 25px rgba(231, 111, 81, 0.25);
+  --shadow-sm: 0 2px 8px rgba(60, 45, 30, 0.05);
+  --shadow-md: 0 8px 24px rgba(60, 45, 30, 0.08);
+  --shadow-lg: 0 16px 40px rgba(60, 45, 30, 0.12);
+  --shadow-glow: 0 0 25px rgba(125, 46, 58, 0.22);
 
   /* Transitions */
   --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -110,7 +114,7 @@ body {
 .blob-1 {
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, #F4ACB7 0%, rgba(244, 172, 183, 0) 70%);
+  background: radial-gradient(circle, #E8A598 0%, rgba(232, 165, 152, 0) 70%);
   top: -100px;
   right: -100px;
 }
@@ -118,7 +122,7 @@ body {
 .blob-2 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, #E9C46A 0%, rgba(233, 196, 106, 0) 70%);
+  background: radial-gradient(circle, #C58940 0%, rgba(197, 137, 64, 0) 70%);
   bottom: 10%;
   left: -150px;
   animation-delay: -5s;
@@ -127,7 +131,7 @@ body {
 .blob-3 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, #A084E8 0%, rgba(160, 132, 232, 0) 70%);
+  background: radial-gradient(circle, #7D2E3A 0%, rgba(125, 46, 58, 0) 70%);
   top: 40%;
   right: 10%;
   animation-delay: -10s;
@@ -141,13 +145,13 @@ body {
 
 /* Announcement Bar */
 .announcement-bar {
-  background: linear-gradient(90deg, #E76F51, #F4A261, #E9C46A);
+  background: linear-gradient(90deg, #651E28, #7D2E3A, #9E3D4E, #C58940);
   color: #FFFFFF;
   font-size: 0.875rem;
   padding: 8px 16px;
   text-align: center;
   font-weight: 500;
-  box-shadow: 0 2px 6px rgba(231, 111, 81, 0.2);
+  box-shadow: 0 2px 8px rgba(101, 30, 40, 0.25);
 }
 
 .announcement-content {

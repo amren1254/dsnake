@@ -87,6 +87,62 @@
   box-shadow: 0 0 0 3px var(--primary-rose-soft);
 }
 
+/* Occasion & Sentiment Filter Bar */
+.occasion-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+  background: var(--bg-card);
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.occasion-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-rose);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.occasion-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.occasion-tab {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-body);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.occasion-tab:hover {
+  border-color: var(--primary-gold);
+  color: var(--primary-gold);
+}
+
+.occasion-tab.active {
+  background: var(--primary-rose);
+  color: #FFFFFF;
+  border-color: var(--primary-rose);
+  box-shadow: 0 2px 8px rgba(125, 46, 58, 0.25);
+}
+
 /* Post Cards Grid */
 .gallery-grid {
   display: grid;
@@ -118,7 +174,7 @@
   position: relative;
   aspect-ratio: 1/1;
   overflow: hidden;
-  background: #F3ECE2;
+  background: #F5EFEB;
 }
 
 .post-img {
@@ -136,7 +192,7 @@
   position: absolute;
   top: 14px;
   left: 14px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
   padding: 5px 12px;
   border-radius: var(--radius-full);
@@ -156,7 +212,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
   border: none;
   display: flex;
@@ -169,7 +225,7 @@
 }
 
 .post-like-btn:hover, .post-like-btn.liked {
-  color: #EF4444;
+  color: var(--primary-rose);
   transform: scale(1.15);
 }
 
@@ -185,12 +241,13 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  gap: 8px;
 }
 
 .post-title {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-dark);
   line-height: 1.25;
@@ -199,7 +256,7 @@
 .post-badge-order, .caption-badge {
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 0.775rem;
+  font-size: 0.75rem;
   color: var(--primary-rose);
   background: var(--primary-rose-soft);
   padding: 4px 10px;
@@ -210,12 +267,35 @@
   gap: 4px;
 }
 
+.post-sentiment-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary-gold);
+  margin-bottom: 8px;
+}
+
 .post-desc {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   color: var(--text-body);
   line-height: 1.5;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   flex-grow: 1;
+}
+
+.post-meaning-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  background: #FCF9F5;
+  border-left: 2px solid var(--primary-gold);
+  padding: 6px 10px;
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 12px;
+  line-height: 1.35;
 }
 
 .post-meta-details {

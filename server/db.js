@@ -91,6 +91,9 @@ export function initDatabase() {
       shortcode TEXT UNIQUE,
       title TEXT NOT NULL,
       category TEXT NOT NULL,
+      occasion TEXT DEFAULT 'all',
+      sentiment TEXT,
+      meaning TEXT,
       price REAL NOT NULL,
       image TEXT NOT NULL,
       caption TEXT NOT NULL,
@@ -103,6 +106,19 @@ export function initDatabase() {
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
   `);
+
+  // Safe Column Migrations for Creations
+  const creationsInfo = db.prepare("PRAGMA table_info(creations)").all();
+  const creationColNames = creationsInfo.map(c => c.name);
+  if (!creationColNames.includes('occasion')) {
+    db.exec("ALTER TABLE creations ADD COLUMN occasion TEXT DEFAULT 'all';");
+  }
+  if (!creationColNames.includes('sentiment')) {
+    db.exec("ALTER TABLE creations ADD COLUMN sentiment TEXT;");
+  }
+  if (!creationColNames.includes('meaning')) {
+    db.exec("ALTER TABLE creations ADD COLUMN meaning TEXT;");
+  }
 
   seedDefaultAdmin();
   seedInstagramCreations();
@@ -144,29 +160,32 @@ function seedInstagramCreations() {
 
     const insert = db.prepare(`
       INSERT OR REPLACE INTO creations (
-        id, shortcode, title, category, price, image, caption, yarn_type, dimensions, likes, is_video, video_url, tag
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        id, shortcode, title, category, occasion, sentiment, meaning, price, image, caption, yarn_type, dimensions, likes, is_video, video_url, tag
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     const titleMap = {
-      'DWD3OiYCWBG': { title: 'Viral Floral & Bow Crochet Hairtie', cat: 'wearables', price: 249, yarn: 'Soft Cotton & Elastic', tag: '🔥 13.9k+ Views' },
-      'DcWMRVLJcI1': { title: 'Everlasting Tulip & Daisy Floral Wrap', cat: 'bouquets', price: 799, yarn: '100% Milk Cotton', tag: '🌸 Hand Tied' },
-      'DcRFjycJxe8': { title: 'Cute Mini Amigurumi Desk Companion', cat: 'amigurumi', price: 399, yarn: 'Chunky Velvet Yarn', tag: '🧸 Cute Plush' },
-      'DcOhYSXJWtt': { title: 'Mini Daisy Bag Charm & Keychain', cat: 'keychains', price: 199, yarn: 'Organic Cotton', tag: '🔑 Gift Favorite' },
-      'DcMQNKvzau5': { title: 'Viral Rose Petal Potli Handbag', cat: 'bags', price: 999, yarn: 'Lustrous Silky Cotton', tag: '👜 Trending Potli' },
-      'DcITdLbpduk': { title: 'Artisan Pastel Flower Bouquet', cat: 'bouquets', price: 899, yarn: 'Milk Cotton Yarn', tag: '✨ Bespoke' },
-      'DcIQe1EJCiZ': { title: 'Bespoke Sunflower & Rose Arrangement', cat: 'bouquets', price: 749, yarn: '100% Milk Cotton', tag: '🌻 Sunny Bloom' },
-      'DZkN5djpgpY': { title: 'Handcrafted Heart Charm Accessory', cat: 'keychains', price: 220, yarn: 'Plush Velvet', tag: '💖 Hand-Stitched' },
-      'DYKWz-MJyqx': { title: 'Whimsical Butterfly Crochet Hairtie', cat: 'wearables', price: 199, yarn: 'Pastel Cotton', tag: '🦋 Viral Hairtie' },
-      'DX8KlieJ3xs': { title: 'Lavender & Chamomile Crochet Stem', cat: 'bouquets', price: 349, yarn: 'Milk Cotton Yarn', tag: '🌿 Calming Herb' },
-      'DXyQp0EJUvx': { title: 'Evergreen Sunflower Single Stem Wrap', cat: 'bouquets', price: 449, yarn: 'Organic Cotton Yarn', tag: '🌻 Forever Flower' },
-      'DXwOHr3pCCu': { title: 'Viral Cat Ear Crochet Hair Clips (Pair)', cat: 'wearables', price: 299, yarn: 'Fluffy Chenille', tag: '🐱 Viral Cat Ear' }
+      'DWD3OiYCWBG': { title: 'Viral Floral & Bow Crochet Hairtie', cat: 'wearables', occasion: 'just_because', sentiment: 'Playful Charm', meaning: 'Delicate hand-tied ribbon bow and floral accent for hair.', price: 249, yarn: 'Soft Cotton & Elastic', tag: '🔥 13.9k+ Views' },
+      'DcWMRVLJcI1': { title: 'Everlasting Tulip & Daisy Floral Wrap', cat: 'bouquets', occasion: 'birthday', sentiment: 'Joy & Everlasting Bond', meaning: 'Symbolizes cheerful adoration and memories that never fade.', price: 799, yarn: '100% Milk Cotton', tag: '🌸 Hand Tied' },
+      'DcRFjycJxe8': { title: 'Cute Mini Amigurumi Desk Companion', cat: 'amigurumi', occasion: 'heal_calm', sentiment: 'Cozy Comfort & Cheer', meaning: 'A tactile pocket plush buddy that brings a gentle smile to your workspace.', price: 399, yarn: 'Chunky Velvet Yarn', tag: '🧸 Cute Plush' },
+      'DcOhYSXJWtt': { title: 'Mini Daisy Bag Charm & Keychain', cat: 'keychains', occasion: 'just_because', sentiment: 'Everyday Sunshine', meaning: 'Hand-stitched botanical charm to brighten bags, airpods & keys.', price: 199, yarn: 'Organic Cotton', tag: '🔑 Gift Favorite' },
+      'DcMQNKvzau5': { title: 'Viral Rose Petal Potli Handbag', cat: 'bags', occasion: 'love', sentiment: 'Festive Elegance', meaning: 'Layered rose petal silhouette with luxury golden drawstring cord.', price: 999, yarn: 'Lustrous Silky Cotton', tag: '👜 Trending Potli' },
+      'DcITdLbpduk': { title: 'Artisan Pastel Flower Bouquet', cat: 'bouquets', occasion: 'love', sentiment: 'Enduring Affection', meaning: 'Soft romantic blush and milk hues wrapped in rustic vintage kraft paper.', price: 899, yarn: 'Milk Cotton Yarn', tag: '✨ Bespoke' },
+      'DcIQe1EJCiZ': { title: 'Bespoke Sunflower & Rose Arrangement', cat: 'bouquets', occasion: 'new_beginnings', sentiment: 'Admiration & Bright Hopes', meaning: 'Combines the sunny optimism of sunflowers with timeless rose petals.', price: 749, yarn: '100% Milk Cotton', tag: '🌻 Sunny Bloom' },
+      'DZkN5djpgpY': { title: 'Handcrafted Heart Charm Accessory', cat: 'keychains', occasion: 'love', sentiment: 'Heartfelt Keepsake', meaning: 'Plush velvet token symbolizing warm love and treasured connection.', price: 220, yarn: 'Plush Velvet', tag: '💖 Hand-Stitched' },
+      'DYKWz-MJyqx': { title: 'Whimsical Butterfly Crochet Hairtie', cat: 'wearables', occasion: 'birthday', sentiment: 'Grace & Transformation', meaning: 'Pastel wings stitched in soft organic cotton to elevate everyday styling.', price: 199, yarn: 'Pastel Cotton', tag: '🦋 Viral Hairtie' },
+      'DX8KlieJ3xs': { title: 'Lavender & Chamomile Crochet Stem', cat: 'bouquets', occasion: 'heal_calm', sentiment: 'Serenity & Healing', meaning: 'Calming botanical stem that creates a mindful, tranquil sanctuary at home.', price: 349, yarn: 'Milk Cotton Yarn', tag: '🌿 Calming Herb' },
+      'DXyQp0EJUvx': { title: 'Evergreen Sunflower Single Stem Wrap', cat: 'bouquets', occasion: 'just_because', sentiment: 'Pure Optimism & Gratitude', meaning: 'A permanent ray of sunshine requiring zero water or sunlight.', price: 449, yarn: 'Organic Cotton Yarn', tag: '🌻 Forever Flower' },
+      'DXwOHr3pCCu': { title: 'Viral Cat Ear Crochet Hair Clips (Pair)', cat: 'wearables', occasion: 'just_because', sentiment: 'Playful Individuality', meaning: 'Whimsical fluffy chenille snap clips for cozy style statements.', price: 299, yarn: 'Fluffy Chenille', tag: '🐱 Viral Cat Ear' }
     };
 
     for (const post of posts) {
       const info = titleMap[post.shortcode] || {
         title: `Ooniverse Creation #${post.shortcode}`,
         cat: 'bouquets',
+        occasion: 'just_because',
+        sentiment: 'Artisan Keepsake',
+        meaning: 'Handcrafted bespoke crochet creation.',
         price: 499,
         yarn: 'Handcrafted Milk Cotton',
         tag: '✨ Handmade'
@@ -179,6 +198,9 @@ function seedInstagramCreations() {
         post.shortcode,
         info.title,
         info.cat,
+        info.occasion || 'just_because',
+        info.sentiment || 'Artisan Keepsake',
+        info.meaning || '',
         info.price,
         localImg,
         post.caption || 'Handcrafted with love by @ooniverse_2404 🧶 DM for custom colors and orders!',
