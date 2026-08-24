@@ -30,16 +30,16 @@ class App {
   }
 
   handleUrlRouting() {
-    // 1. Pathname check: /admin, /admin/, /tracker, /customizer, /home, /
+    // 1. Pathname check: /admin, /admin/, /products, /tracker, /customizer, /home, /
     const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
-    // 2. Hash check: #admin, #tracker, #customizer, #home
+    // 2. Hash check: #admin, #products, #tracker, #customizer, #home
     const rawHash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
 
     if (rawPath === 'admin' || rawHash === 'admin') {
       this.navigateTo('admin', false);
-    } else if (['customizer', 'tracker'].includes(rawPath)) {
+    } else if (['products', 'customizer', 'tracker'].includes(rawPath)) {
       this.navigateTo(rawPath, false);
-    } else if (['customizer', 'tracker'].includes(rawHash)) {
+    } else if (['products', 'customizer', 'tracker'].includes(rawHash)) {
       this.navigateTo(rawHash, false);
     } else {
       this.navigateTo('home', false);
@@ -111,7 +111,7 @@ class App {
     }
 
     // Refresh view specific components
-    if (viewName === 'home') {
+    if (viewName === 'home' || viewName === 'products') {
       gallery.render();
     } else if (viewName === 'admin') {
       admin.render();

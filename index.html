@@ -52,7 +52,10 @@
       <!-- Desktop Nav Links -->
       <nav class="nav-menu">
         <button class="nav-item active" data-view="home" onclick="app.navigateTo('home')">
-          <i class="fa-solid fa-sparkles"></i> Creations
+          <i class="fa-solid fa-house"></i> Home
+        </button>
+        <button class="nav-item" data-view="products" onclick="app.navigateTo('products')">
+          <i class="fa-solid fa-layer-group"></i> All Products
         </button>
         <button class="nav-item" data-view="customizer" onclick="app.navigateTo('customizer')">
           <i class="fa-solid fa-cart-shopping"></i> Order
@@ -80,7 +83,10 @@
     <div class="mobile-nav-drawer" id="mobileNavDrawer">
       <div class="mobile-nav-links">
         <button class="mobile-nav-item active" data-view="home" onclick="app.navigateTo('home')">
-          <i class="fa-solid fa-sparkles"></i> Creations Feed
+          <i class="fa-solid fa-house"></i> Home
+        </button>
+        <button class="mobile-nav-item" data-view="products" onclick="app.navigateTo('products')">
+          <i class="fa-solid fa-layer-group"></i> All Products
         </button>
         <button class="mobile-nav-item" data-view="customizer" onclick="app.navigateTo('customizer')">
           <i class="fa-solid fa-cart-shopping"></i> Order
@@ -103,36 +109,33 @@
   <!-- MAIN APPLICATION CONTAINER (Multi-view SPA) -->
   <main class="main-content" id="mainContent">
 
-    <!-- VIEW 1: HOME & CREATIONS SHOWCASE -->
+    <!-- VIEW 1: HOME & CURATED SHOWCASE (Instagram Atelier) -->
     <section class="view-section active" id="view-home">
       <!-- Hero Section -->
       <div class="hero-section">
         <div class="hero-container">
           <div class="hero-content">
-            <div class="hero-badge">
-              <span class="pulse-dot"></span>
-              <span>100% Handcrafted Artisan Crochet</span>
-            </div>
+            <span class="hero-tagline"><i class="fa-brands fa-instagram"></i> @ooniverse_2404 &bull; Handmade Crochet</span>
             <h1 class="hero-title">
               Your Ideas, <br>
               <span class="gradient-text">My Stitch 🧵</span>
             </h1>
             <p class="hero-bio">
-              "Custom crochet made just for you 🧶 &bull; Personalised crochet gifts 🎁 &bull; Turning requests into yarn magic 🪄"
+              Custom crochet made just for you 🧶 &bull; Personalised crochet gifts 🎁 &bull; Turning requests into yarn magic 🪄
             </p>
             
             <div class="hero-stats">
               <div class="stat-pill">
                 <span class="stat-num">45+</span>
-                <span class="stat-lbl">Handmade Posts</span>
+                <span class="stat-lbl">Instagram Posts</span>
               </div>
               <div class="stat-pill">
                 <span class="stat-num">479+</span>
-                <span class="stat-lbl">IG Community</span>
+                <span class="stat-lbl">Followers</span>
               </div>
               <div class="stat-pill">
                 <span class="stat-num">100%</span>
-                <span class="stat-lbl">Custom Tailored</span>
+                <span class="stat-lbl">Handmade</span>
               </div>
             </div>
 
@@ -140,8 +143,8 @@
               <button class="btn btn-primary btn-lg" onclick="app.navigateTo('customizer')">
                 <i class="fa-solid fa-cart-shopping"></i> Order Now
               </button>
-              <button class="btn btn-secondary btn-lg" onclick="app.navigateTo('tracker')">
-                <i class="fa-solid fa-magnifying-glass"></i> Track Order Status
+              <button class="btn btn-secondary btn-lg" onclick="app.navigateTo('products')">
+                <i class="fa-solid fa-layer-group"></i> Browse All Products
               </button>
             </div>
           </div>
@@ -149,17 +152,17 @@
           <div class="hero-card-preview">
             <div class="artisan-polaroid">
               <div class="polaroid-image-wrap">
-                <img src="/instagram/DcWMRVLJcI1.jpg" alt="Artisan Crochet Sunflower Bouquet from @ooniverse_2404" class="polaroid-img">
+                <img src="/instagram/DcWMRVLJcI1.jpg" alt="Handmade Crochet Floral Bouquet from @ooniverse_2404" class="polaroid-img">
                 <div class="polaroid-tag"><i class="fa-brands fa-instagram"></i> @ooniverse_2404</div>
               </div>
               <div class="polaroid-caption">
                 <div class="caption-header">
-                  <span class="caption-title">Tulip & Daisy Eternal Bouquet</span>
-                  <span class="caption-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Made to Order</span>
+                  <span class="caption-title">Floral Bouquet</span>
+                  <span class="caption-badge">Handmade</span>
                 </div>
-                <p class="caption-sub">Hand-stitched in pure milk cotton yarn. Forever fresh.</p>
+                <p class="caption-sub">Dm for orders &bull; #explorepage✨ #fyp</p>
                 <div class="polaroid-actions">
-                  <button class="btn btn-outline-sm" onclick="customizer.prefillWith('Tulip & Daisy Eternal Bouquet', 'Floral Bouquet', '/instagram/DcWMRVLJcI1.jpg')">
+                  <button class="btn btn-outline-sm" onclick="customizer.prefillWith('Floral Bouquet', 'Floral Bouquet', '/instagram/DcWMRVLJcI1.jpg')">
                     <i class="fa-solid fa-cart-shopping"></i> Order Similar
                   </button>
                   <a href="https://www.instagram.com/ooniverse_2404" target="_blank" class="ig-mini-link">
@@ -172,66 +175,88 @@
         </div>
       </div>
 
-      <!-- Creations Gallery & Instagram Post Feed -->
+      <!-- Curated Showcase Section (Homepage) -->
       <div class="gallery-section" id="creations">
-        <div class="gallery-container">
-          <div class="section-header">
-            <div class="section-badge">
-              <i class="fa-brands fa-instagram"></i> Fresh From The Hook &bull; @ooniverse_2404
-            </div>
-            <h2 class="section-title">Artisan Crochet Portfolio & Collections</h2>
-            <p class="section-subtitle">
-              Everlasting handmade crochet floral wraps, bespoke potlis, hairties, and plushies. Browse by category or sentiment, and click the magic wand icon (<i class="fa-solid fa-wand-magic-sparkles"></i>) on any creation to request your custom quote!
-            </p>
-          </div>
+        <!-- Curated Chapters Container -->
+        <div class="curated-chapters-wrap" id="curatedChapters">
+          <!-- Dynamically populated from store via js/gallery.js -->
+        </div>
 
-          <!-- Controls: Categories and Search -->
-          <div class="gallery-controls">
-            <div class="category-pills" id="categoryPills">
-              <button class="cat-pill active" data-category="all">All Creations</button>
-              <button class="cat-pill" data-category="bouquets">🌸 Floral Bouquets</button>
-              <button class="cat-pill" data-category="wearables">🎀 Wearables & Hairties</button>
-              <button class="cat-pill" data-category="bags">👜 Bags & Potlis</button>
-              <button class="cat-pill" data-category="amigurumi">🧸 Amigurumi Plushies</button>
-              <button class="cat-pill" data-category="keychains">🔑 Charms & Keychains</button>
-            </div>
-            <div class="gallery-search">
-              <i class="fa-solid fa-magnifying-glass search-icon"></i>
-              <input type="text" id="gallerySearchInput" placeholder="Search creations (e.g. potli, sunflower, hairtie)..." class="search-input">
+        <!-- Inspo Banner -->
+        <div class="custom-inspo-banner">
+          <div class="inspo-content">
+            <div class="inspo-icon"><i class="fa-solid fa-wand-sparkles"></i></div>
+            <div class="inspo-text">
+              <h3>Have a custom idea in mind?</h3>
+              <p>Send us any photo or sketch and we'll turn your request into handmade yarn magic.</p>
             </div>
           </div>
+          <button class="btn btn-primary btn-md" onclick="app.navigateTo('customizer')">
+            <i class="fa-solid fa-paper-plane"></i> Request Custom Quote
+          </button>
+        </div>
+      </div>
+    </section>
 
-          <!-- Occasion & Sentiment Filter Bar (Hunar Crochet Style) -->
-          <div class="occasion-filter-bar" id="occasionFilterBar">
-            <span class="occasion-label"><i class="fa-solid fa-gift"></i> Shop by Sentiment:</span>
-            <div class="occasion-tabs">
-              <button class="occasion-tab active" data-occasion="all">✨ All</button>
-              <button class="occasion-tab" data-occasion="love">💝 Love & Romance</button>
-              <button class="occasion-tab" data-occasion="birthday">🎂 Birthday</button>
-              <button class="occasion-tab" data-occasion="heal_calm">🌿 Heal & Calm</button>
-              <button class="occasion-tab" data-occasion="new_beginnings">🌱 New Beginnings</button>
-              <button class="occasion-tab" data-occasion="just_because">🎁 Just Because</button>
+    <!-- VIEW 2: ALL PRODUCTS / FULL PORTFOLIO ARCHIVE -->
+    <section class="view-section" id="view-products">
+      <div class="gallery-section" id="products-archive">
+        <div class="section-header text-center">
+          <div class="section-badge">
+            <i class="fa-solid fa-layer-group"></i> Full Portfolio Archive
+          </div>
+          <h1 class="section-title">All Handcrafted Products</h1>
+          <p class="section-subtitle">
+            Browse our complete collection of eternal bouquets, festive potlis, wearables, and amigurumi companions.
+          </p>
+        </div>
+
+        <!-- Controls: Categories and Search -->
+        <div class="gallery-controls">
+          <div class="category-pills" id="categoryPills">
+            <button class="cat-pill active" data-category="all">All Creations</button>
+            <button class="cat-pill" data-category="bouquets">🌸 Floral Bouquets</button>
+            <button class="cat-pill" data-category="bags">👜 Bags & Potlis</button>
+            <button class="cat-pill" data-category="wearables">🎀 Wearables & Hairties</button>
+            <button class="cat-pill" data-category="amigurumi">🧸 Amigurumi Plushies</button>
+            <button class="cat-pill" data-category="keychains">🔑 Charms & Keychains</button>
+          </div>
+          <div class="gallery-search">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="gallerySearchInput" placeholder="Search creations (e.g. potli, sunflower, hairtie)..." class="search-input">
+          </div>
+        </div>
+
+        <!-- Occasion & Sentiment Filter Bar -->
+        <div class="occasion-filter-bar" id="occasionFilterBar">
+          <span class="occasion-label"><i class="fa-solid fa-heart"></i> By Sentiment:</span>
+          <div class="occasion-tabs">
+            <button class="occasion-tab active" data-occasion="all">✨ All Sentiments</button>
+            <button class="occasion-tab" data-occasion="love">💝 Love & Romance</button>
+            <button class="occasion-tab" data-occasion="birthday">🎂 Birthday</button>
+            <button class="occasion-tab" data-occasion="heal_calm">🌿 Heal & Calm</button>
+            <button class="occasion-tab" data-occasion="new_beginnings">🌱 New Beginnings</button>
+            <button class="occasion-tab" data-occasion="just_because">🎁 Just Because</button>
+          </div>
+        </div>
+
+        <!-- Post Cards Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Dynamically populated from store via js/gallery.js -->
+        </div>
+
+        <!-- Inspo Banner -->
+        <div class="custom-inspo-banner">
+          <div class="inspo-content">
+            <div class="inspo-icon"><i class="fa-solid fa-wand-sparkles"></i></div>
+            <div class="inspo-text">
+              <h3>Have a unique bouquet, sketch, or character in mind?</h3>
+              <p>We bring any sketch, video game character, pet portrait, or bespoke eternity bouquet to life.</p>
             </div>
           </div>
-
-          <!-- Post Cards Grid -->
-          <div class="gallery-grid" id="galleryGrid">
-            <!-- Dynamically populated from store via js/gallery.js -->
-          </div>
-
-          <!-- Post Inspo Banner -->
-          <div class="custom-inspo-banner">
-            <div class="inspo-content">
-              <div class="inspo-icon"><i class="fa-solid fa-wand-sparkles"></i></div>
-              <div class="inspo-text">
-                <h3>Have a unique idea or custom character in mind?</h3>
-                <p>We bring any sketch, video game character, pet portrait, or bespoke eternity bouquet to life.</p>
-              </div>
-            </div>
-            <button class="btn btn-primary btn-md" onclick="app.navigateTo('customizer')">
-              <i class="fa-solid fa-paper-plane"></i> Request Custom Quote
-            </button>
-          </div>
+          <button class="btn btn-primary btn-md" onclick="app.navigateTo('customizer')">
+            <i class="fa-solid fa-paper-plane"></i> Request Custom Quote
+          </button>
         </div>
       </div>
     </section>
@@ -241,8 +266,8 @@
       <div class="customizer-container">
         <!-- Header -->
         <div class="section-header text-center">
-          <div class="section-badge"><i class="fa-solid fa-cart-shopping"></i> Order Piece</div>
-          <h2 class="section-title">Order Your Custom Crochet Piece</h2>
+          <div class="section-badge"><i class="fa-solid fa-cart-shopping"></i> Order</div>
+          <h2 class="section-title">Order Your Custom Creation</h2>
           <p class="section-subtitle">
             Describe what you want made, attach reference photos, choose your colors, and click <strong>"Get Quote"</strong> &mdash; our artisan will review & confirm your quotation!
           </p>

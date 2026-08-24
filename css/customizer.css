@@ -152,7 +152,7 @@
 .cat-card-option input[type="radio"]:checked + .cat-card-inner {
   background: #FFFFFF;
   border-color: var(--primary-rose);
-  box-shadow: 0 4px 16px rgba(231, 111, 81, 0.15);
+  box-shadow: 0 4px 16px rgba(184, 64, 90, 0.15);
 }
 
 .cat-emoji {
@@ -369,7 +369,7 @@
 .yarn-card-option input[type="radio"]:checked + .yarn-card-inner {
   background: #FFFFFF;
   border-color: var(--primary-rose);
-  box-shadow: 0 4px 14px rgba(231, 111, 81, 0.15);
+  box-shadow: 0 4px 14px rgba(184, 64, 90, 0.15);
 }
 
 .yarn-badge {
@@ -527,7 +527,7 @@
 .size-card-option input[type="radio"]:checked + .size-card-inner {
   background: #FFFFFF;
   border-color: var(--primary-rose);
-  box-shadow: 0 4px 12px rgba(231, 111, 81, 0.15);
+  box-shadow: 0 4px 12px rgba(184, 64, 90, 0.15);
 }
 
 .size-badge {
@@ -865,16 +865,23 @@
   font-size: 1.05rem;
   font-weight: 700;
   padding: 14px 20px;
-  box-shadow: 0 4px 14px rgba(231, 111, 81, 0.35);
+  background: linear-gradient(135deg, var(--primary-rose) 0%, var(--palette-petal-accent) 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(225, 29, 72, 0.32);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
 }
 
 .btn-get-quote:hover {
+  background: linear-gradient(135deg, #BE123C 0%, #E11D48 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(231, 111, 81, 0.45);
+  box-shadow: 0 8px 24px rgba(225, 29, 72, 0.42);
 }
 
 .cta-micro-note {
@@ -912,8 +919,9 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--primary-rose-soft);
+  background: #FFF1F3;
   color: var(--primary-rose);
+  border: 1px solid #FECDD3;
   font-weight: 700;
   font-size: 0.95rem;
   display: flex;
@@ -949,7 +957,7 @@
   font-weight: 700;
   padding: 14px 48px;
   border-radius: var(--radius-full);
-  box-shadow: 0 4px 16px rgba(231, 111, 81, 0.35);
+  box-shadow: 0 4px 16px rgba(184, 64, 90, 0.35);
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -957,7 +965,7 @@
 
 .btn-get-quote-main:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 22px rgba(231, 111, 81, 0.45);
+  box-shadow: 0 6px 22px rgba(184, 64, 90, 0.45);
 }
 
 .submit-hint {

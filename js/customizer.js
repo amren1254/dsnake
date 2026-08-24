@@ -4,22 +4,22 @@
  */
 import { store } from './store.js';
 
-// Curated artisan yarn color swatches (Hunar Crochet aesthetic)
+// Curated artisan yarn color swatches (Harmonized 7-Color Palette)
 const COLOR_SWATCHES = [
+  { name: 'Strawberry Milk Pink', hex: '#F4B6C2', category: 'pink' },
+  { name: 'Petal Accent Peach', hex: '#E8A598', category: 'pink' },
+  { name: 'Chamomile Cream', hex: '#F9F1DC', category: 'yellow' },
+  { name: 'Pastel Lavender Mist', hex: '#D8CCE3', category: 'purple' },
+  { name: 'Soft Glass Rose Quartz', hex: '#F5E8EE', category: 'pink' },
+  { name: 'Neutral Vanilla Silk', hex: '#FAF5F0', category: 'neutral' },
+  { name: 'Warm Oat Backdrop', hex: '#FDF9F3', category: 'neutral' },
   { name: 'Rose Wine Burgundy', hex: '#7D2E3A', category: 'red' },
-  { name: 'Blush Silk', hex: '#E8A598', category: 'pink' },
-  { name: 'Sakura Petal', hex: '#F7D6D0', category: 'pink' },
   { name: 'Amber Honey', hex: '#C58940', category: 'yellow' },
   { name: 'Warm Terracotta', hex: '#B8533E', category: 'red' },
-  { name: 'Cappuccino Beige', hex: '#D4C4B5', category: 'neutral' },
-  { name: 'Vanilla Silk', hex: '#FDFBF7', category: 'neutral' },
   { name: 'Matcha Sage', hex: '#5B7065', category: 'green' },
   { name: 'Forest Olive', hex: '#3E5C43', category: 'green' },
   { name: 'Eucalyptus Mist', hex: '#A8BBA2', category: 'green' },
-  { name: 'Dusty Lilac', hex: '#8B729E', category: 'purple' },
-  { name: 'Lavender Mist', hex: '#C4B5D4', category: 'purple' },
   { name: 'Sky Breeze', hex: '#90C2E7', category: 'blue' },
-  { name: 'Royal Indigo', hex: '#2B4162', category: 'blue' },
   { name: 'Cocoa Velvet', hex: '#5A4334', category: 'neutral' },
   { name: 'Midnight Espresso', hex: '#241A14', category: 'neutral' }
 ];
@@ -50,7 +50,7 @@ const SIZE_LABELS = {
 class Customizer {
   constructor() {
     this.uploadedImages = [];
-    this.selectedColors = [COLOR_SWATCHES[0], COLOR_SWATCHES[3]];
+    this.selectedColors = [COLOR_SWATCHES[0], COLOR_SWATCHES[1], COLOR_SWATCHES[2]];
     this.submittedOrder = null;
 
     this.init();
